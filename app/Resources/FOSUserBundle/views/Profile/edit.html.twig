@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+{% block pageTitle %}
+    Edit Profile Cup Cake !
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css?v=2.0.2') }}">
+    <script>
+        UPLOADCARE_LOCALE = "en";
+        UPLOADCARE_TABS = "file url facebook gdrive gphotos dropbox instagram evernote flickr skydrive";
+        UPLOADCARE_PUBLIC_KEY = "0f8ee3d273a6f89d4a4f";
+    </script>
+    <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.2.3/uploadcare.full.min.js"></script>
+    <style>
+        .image-preview-single {
+            padding: 10px 0;
+        }
+        .image-preview-single > img {
+            width: 128px;
+            height: 96px;
+            vertical-align: middle;
+            visibility: hidden;
+            display: inline-block;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+{% block pageClass %}
+    <body class="signup-page">
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+        {% include "@FOSUser/Profile/edit_content.html.twig" %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    {% block scripts %}
+        {{ parent() }}
+        <script>
+            function installWidgetPreviewSingle(widget, img) {
+                widget.onChange(function(file) {
+                    img.css('visibility', 'hidden');
+                    img.attr('src', '');
+                    if (file) {
+                        file.done(function(fileInfo) {
+                            var size = '' + (img.width() * 2) + 'x' + (img.height() * 2);
+                            var previewUrl = fileInfo.cdnUrl + '-/scale_crop/' + size + '/center/';
+                            img.attr('src', previewUrl);
+                            img.css('visibility', 'visible');
+                        });
+                    }
+                });
+            }
+            $(function() {
+                $('.image-preview-single').each(function() {
+                    installWidgetPreviewSingle(
+                        uploadcare.SingleWidget($(this).children('input')),
+                        $(this).children('img')
+                    );
+                });
+            });
+
+            $(document).ready(function() {
+
+                //init DateTimePickers
+                materialKit.initFormExtendedDatetimepickers();
+
+            });
+            // $('.datetimepicker').datetimepicker({
+            //     icons: {
+            //         time: "fa fa-clock-o",
+            //         date: "fa fa-calendar",
+            //         up: "fa fa-chevron-up",
+            //         down: "fa fa-chevron-down",
+            //         previous: 'fa fa-chevron-left',
+            //         next: 'fa fa-chevron-right',
+            //         today: 'fa fa-screenshot',
+            //         clear: 'fa fa-trash',
+            //         close: 'fa fa-remove'
+            //     }
+            // });
+        </script>
+        <!--  Google Maps Plugin  -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNduoRB6rgeXnHvjbppiJphh5p-KpT8Jc"></script>
+    {% endblock %}
+    </body>
+
+{% endblock %}

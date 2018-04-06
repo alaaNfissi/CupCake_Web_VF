@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block pageTitle %}
+    My Profile Cup Cake !
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css?v=2.0.2') }}">
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% block pageClass %}
+    <body class="profile-page ">
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+
+{% block main %}
+    {% include "@FOSUser/Profile/show_content.html.twig" %}
+{% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block scripts %}
+        {{ parent() }}
+        <!--  Google Maps Plugin  -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNduoRB6rgeXnHvjbppiJphh5p-KpT8Jc"></script>
+    {% endblock %}
+    </body>
+{% endblock %}

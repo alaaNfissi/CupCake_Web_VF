@@ -1,0 +1,139 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Alaa
+ * Date: 25/03/2018
+ * Time: 15:09
+ */
+
+namespace CupCake\CommandeBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="CupCake\CommandeBundle\Entity\CommandeRepository")
+ * @ORM\Table(name="commande")
+ */
+class Commande
+{
+    /**
+     * @ORM\GeneratedValue
+     * @ORM\Id
+     * @ORM\Column(name="id_commande",type="integer")
+     */
+    private $id_commande;
+
+    /**
+     * @ORM\Column(name="num_commande",type="integer")
+     */
+    private $num_commande;
+
+    /**
+     * @ORM\Column(name="date_commande",type="date")
+     */
+    private $date_commande;
+
+    /**
+     * @ORM\Column(name="prix_totale",type="float")
+     */
+    private $prix_totale;
+
+    /**
+     * @ORM\OneToOne(targetEntity="CupCake\PanierBundle\Entity\Panier")
+     * @ORM\JoinColumn(name="id_panier",referencedColumnName="id_panier")
+     */
+
+    private $panier;
+
+    /**
+     * @return mixed
+     */
+    public function getIdCommande()
+    {
+        return $this->id_commande;
+    }
+
+    /**
+     * @param mixed $id_commande
+     */
+    public function setIdCommande($id_commande)
+    {
+        $this->id_commande = $id_commande;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumCommande()
+    {
+        return $this->num_commande;
+    }
+
+    /**
+     * @param mixed $num_commande
+     */
+    public function setNumCommande($num_commande)
+    {
+        $this->num_commande = $num_commande;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCommande()
+    {
+        return $this->date_commande;
+    }
+
+    /**
+     * @param mixed $date_commande
+     */
+    public function setDateCommande($date_commande)
+    {
+        $this->date_commande = $date_commande;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrixTotale()
+    {
+        return $this->prix_totale;
+    }
+
+    /**
+     * @param mixed $prix_totale
+     */
+    public function setPrixTotale($prix_totale)
+    {
+        $this->prix_totale = $prix_totale;
+    }
+
+
+
+
+    /**
+     * Set panier
+     *
+     * @param \CupCake\PanierBundle\Entity\Panier $panier
+     *
+     * @return Commande
+     */
+    public function setPanier(\CupCake\PanierBundle\Entity\Panier $panier = null)
+    {
+        $this->panier = $panier;
+
+        return $this;
+    }
+
+    /**
+     * Get panier
+     *
+     * @return \CupCake\PanierBundle\Entity\Panier
+     */
+    public function getPanier()
+    {
+        return $this->panier;
+    }
+}

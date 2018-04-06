@@ -1,0 +1,485 @@
+{% extends 'base.html.twig'%}
+{#{% set produits=produits %}#}
+{% block pageTitle %}
+    Home Cup Cake
+{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css?v=2.0.2') }}">
+{% endblock %}
+{% block  body %}
+    {% block pageClass %}
+        <body class="index-page ">
+    {% endblock %}
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+    {% block main %}
+        {% if panier.idPanier != null %}
+            {#{% block mailsnbr %}#}
+                {#<span class="notification">1</span>#}
+            {#{% endblock %}#}
+            {% block mails %}
+                {#<span class="notification">1</span>#}
+                <div class="dropdown-menu dropdown-menu-right">
+                    <h6 class="dropdown-header">Vos notifications</h6>
+                    <a class="dropdown-item">vous avez un panier n'est pas encore valider !</a>
+                </div>
+            {% endblock %}
+            {% else %}
+        {% endif %}
+        <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url({{ asset('assets/img/kit/pro/bg0.jpg') }});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="brand">
+                            <h1>Cup Cake
+                                <span class="pro-badge">
+                                Yum!
+                                </span>
+                            </h1>
+                            <h3 class="title">All your flavors !</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <div class="row">
+                        <h3>Enjoy the Journey</h3>
+                        {% if Bcommande == 1 %}
+                            <button class="btn btn-block btn-round" data-toggle="modal" data-target="#smallAlertModal1" id="modaltest" hidden></button>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ml-auto mr-auto">
+                            <div class="profile-tabs">
+                                <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                    <!--
+                          color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                      -->
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#work" role="tab" data-toggle="tab">
+                                            <i class="material-icons">view_headline</i> Publications
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
+                                            <i class="material-icons">cake</i> Patisseries
+                                        </a>
+                                    </li>
+                                    {#<li class="nav-item">#}
+                                        {#<a class="nav-link" href="#media" role="tab" data-toggle="tab">#}
+                                            {#<i class="material-icons">camera</i> Media#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tab-space">
+                        <div class="tab-pane active work" id="work">
+                            <div class="row">
+                                    <div class="row collections">
+                                        <div class="col-md-8 ml-auto mr-auto">
+                                            <h2 class="title">Latest Blogposts 4</h2>
+                                            <br>
+                                            <div class="card card-plain card-blog">
+                                                <div class="card-header card-header-image">
+                                                    <a href="#">
+                                                        <img class="img img-raised" src="{{ asset('assets/img/kit/pro/bg5.jpg') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h6 class="card-category text-info">Fashion</h6>
+                                                    <h3 class="card-title">
+                                                        <a href="#">Autodesk looks to future of 3D</a>
+                                                    </h3>
+                                                    <h5 class="card-description">
+                                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is too high for the beams and angle of the ceiling I also wanted to point out that it’s the first album to go number 1 off of streaming...
+                                                    </h5>
+                                                    <a href="#" class="btn btn-primary btn-round"> Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="card card-plain card-blog">
+                                                <div class="card-header card-header-image">
+                                                    <a href="#">
+                                                        <img class="img img-raised" src="{{ asset('assets/img/kit/pro/examples/blog6.jpg') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h6 class="card-category text-success">Lifestyle</h6>
+                                                    <h3 class="card-title">
+                                                        <a href="#">We will breathe clean air and exercise</a>
+                                                    </h3>
+                                                    <h5 class="card-description">
+                                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is too high for the beams and angle of the ceiling I also wanted to point out that it’s the first album to go number 1 off of streaming...
+                                                    </h5>
+                                                    <a href="#" class="btn btn-primary btn-round"> Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {#<div class="col-md-2 mr-auto ml-auto stats">#}
+                                    {#<h4 class="title">Stats</h4>#}
+                                    {#<ul class="list-unstyled">#}
+                                        {#<li>#}
+                                            {#<b>60</b> Products</li>#}
+                                        {#<li>#}
+                                            {#<b>4</b> Collections</li>#}
+                                        {#<li>#}
+                                            {#<b>331</b> Influencers</li>#}
+                                        {#<li>#}
+                                            {#<b>1.2K</b> Likes</li>#}
+                                    {#</ul>#}
+                                    {#<hr>#}
+                                    {#<h4 class="title">About his Work</h4>#}
+                                    {#<p class="description">French luxury footwear and fashion. The footwear has incorporated shiny, red-lacquered soles that have become his signature.</p>#}
+                                    {#<hr>#}
+                                    {#<h4 class="title">Focus</h4>#}
+                                    {#<span class="badge badge-primary">Footwear</span>#}
+                                    {#<span class="badge badge-rose">Luxury</span>#}
+                                {#</div>#}
+                            </div>
+                        </div>
+                        <div class="container connections" id="connections">
+                            <div class="row">
+                                {% for patisserie in patisseries %}
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="rotating-card-container">
+                                        <div class="card card-rotate card-background">
+                                            <div class="front front-background" style="background-image: url({{ patisserie.image }});">
+                                                <div class="card-body">
+                                                    <h6 class="card-category">{{ patisserie.specialite }}</h6>
+                                                    <a href="#">
+                                                        <h3 class="card-title">{{ patisserie.libellePatisserie }}</h3>
+                                                    </a>
+                                                    <p class="card-description">
+                                                        {{ patisserie.description }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="back back-background" style="background-image: url({{ patisserie.image }});">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                       Vous nous trouvez à : {{ patisserie.adressePatisserie }}
+                                                    </h5>
+                                                    <p class="card-description">Créer le : {{ patisserie.dateCreation|date }}</p>
+                                                    <div class="footer text-center">
+                                                        <a href="{{ path('patisserie_space_libelle',{'libelle_patisserie': patisserie.libellePatisserie }) }}" class="btn btn-info btn-just-icon btn-fill btn-round">
+                                                            <i class="material-icons">store</i>
+                                                        </a>
+                                                        <a href="{{ patisserie.compteFacebook }}" class="btn btn-just-icon btn-round btn-facebook">
+                                                            <i class="fa fa-facebook"></i>
+                                                        </a>
+                                                        <a href="{{ patisserie.compteInstagram }}" class="btn btn-just-icon btn-round btn-instagram">
+                                                            <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <h2>Il n'y a pas encore des patisserie </h2>
+                                {% endfor %}
+                                {#<div class="col-md-5 mr-auto ml-auto">#}
+                                    {#<div class="card card-profile card-plain">#}
+                                        {#<div class="row">#}
+                                            {#<div class="col-md-5">#}
+                                                {#<div class="card-header card-header-image">#}
+                                                    {#<a href="#">#}
+                                                        {#<img class="img" src="{{ asset('assets/img/kit/pro/faces/marc.jpg') }}" />#}
+                                                    {#</a>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="col-md-7">#}
+                                                {#<div class="card-body">#}
+                                                    {#<h4 class="card-title">Marc Jacobs</h4>#}
+                                                    {#<h6 class="card-category text-muted">Designer</h6>#}
+                                                    {#<p class="card-description">#}
+                                                        {#Don't be scared of the truth because we need to restart the human foundation in truth...#}
+                                                    {#</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            </div>
+                            {#<div class="row">#}
+                                {#<div class="col-md-5 ml-auto mr-auto">#}
+                                    {#<div class="card card-profile card-plain">#}
+                                        {#<div class="row">#}
+                                            {#<div class="col-md-5">#}
+                                                {#<div class="card-header card-header-image">#}
+                                                    {#<a href="#">#}
+                                                        {#<img class="img" src="{{ asset('assets/img/kit/pro/faces/kendall.jpg') }}" />#}
+                                                    {#</a>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="col-md-7">#}
+                                                {#<div class="card-body">#}
+                                                    {#<h4 class="card-title">Kendall Jenner</h4>#}
+                                                    {#<h6 class="card-category text-muted">Model</h6>#}
+                                                    {#<p class="card-description">#}
+                                                        {#I love you like Kanye loves Kanye. Don't be scared of the truth.#}
+                                                    {#</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="col-md-5 ml-auto mr-auto">#}
+                                    {#<div class="card card-profile card-plain">#}
+                                        {#<div class="row">#}
+                                            {#<div class="col-md-5">#}
+                                                {#<div class="card-header card-header-image">#}
+                                                    {#<a href="#">#}
+                                                        {#<img class="img" src="{{ asset('assets/img/kit/pro/faces/card-profile2-square.jpg') }}" />#}
+                                                    {#</a>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="col-md-7">#}
+                                                {#<div class="card-body">#}
+                                                    {#<h4 class="card-title">George West</h4>#}
+                                                    {#<h6 class="card-category text-muted">Model/DJ</h6>#}
+                                                    {#<p class="card-description">#}
+                                                        {#I love you like Kanye loves Kanye.#}
+                                                    {#</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        </div>
+                        {#<div class="tab-pane text-center gallery" id="media">#}
+                            {#<div class="row">#}
+                                {#<div class="col-md-3 ml-auto">#}
+                                    {#<img src="{{ asset('assets/img/kit/pro/examples/mariya-georgieva.jpg') }}" class="rounded">#}
+                                    {#<img src="{{ asset('assets/img/kit/pro/examples/clem-onojegaw.jpg') }}" class="rounded">#}
+                                {#</div>#}
+                                {#<div class="col-md-3 mr-auto">#}
+                                    {#<img src="{{ asset('assets/img/kit/pro/examples/clem-onojeghuo.jpg') }}" class="rounded">#}
+                                    {#<img src="{{ asset('assets/img/kit/pro/examples/olu-eletu.jpg') }}" class="rounded">#}
+                                    {#<img src="{{ asset('assets/img/kit/pro/examples/cynthia-del-rio.jpg') }}" class="rounded">#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block scripts %}
+        <!-- small modal -->
+        <div class="modal fade" id="smallAlertModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-small" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h5>Are you sure you want to do this? </h5>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>
+                        {#<button type="button" class="btn btn-success btn-link">Yes</button>#}
+                        {% set prixT=0 %}
+                        {% for produit in produits %}
+                        {% set prixT= prixT+produit.prix %}
+                        {% endfor %}
+                        <a href="{{ path('commande_create',{'panier':panier.idpanier,'prixT':prixT,'test':1}) }}">
+                        <button type="button" class="btn btn-success btn-link">Yes {{ prixT }} <i class="material-icons">keyboard_arrow_right</i></button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    end small modal -->
+        <!------------------------------------------------------------------------------------------->
+        <!-- small modal -->
+        <div class="modal fade" id="smallAlertModal1" tabindex="-1" role="dialog" data-backdrop="static">
+            <div class="modal-dialog modal-small" role="document">
+                <div class="modal-content">
+                    {#<div class="modal-header">#}
+                        {#<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>#}
+                    {#</div>#}
+                    <div class="modal-header justify-content-center">
+                        <h4 class="text-danger">La date de votre Livraison</h4>
+                    </div>
+                    {#<form method="POST">#}
+                    <div class="modal-body text-center">
+                        <h5>Minimum aprés deux jours </h5>
+                            <input class="form-control" type="date" name="date_livraison" hidden value="{{ date('now')|date }}">
+                            <input class="form-control" name="id_commande" type="number" hidden value="{{ LCommande.idCommande}}"/>
+                            <input class="form-control" name="prix_livraison" hidden type="number" value="{{ LCommande.prixTotale }}"/>
+                            <input class="form-control" name="etat_livraison" hidden type="number" value="0">
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        {#<button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>#}
+                        {#<a href="{{ path('livraison_ajout')}}">#}
+                        {#<input type="submit" class="btn btn-success btn-link" value="Confirmer">#}
+                        <a href="{{ path('livraison_ajout',{'id_commande':LCommande.idCommande,'prix_livraison':LCommande.prixTotale,'etat_livraison':1})}}">
+                        <button type="submit" class="btn btn-success btn-link">Confirmer</button>
+                        </a>
+                        {#</a>#}
+                    </div>
+                    {#</form>#}
+                </div>
+            </div>
+        </div>
+        <!--    end small modal -->
+        <!------------------------------------------------------------------------------------------->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-signup" role="document">
+                <div class="modal-content">
+                    <div class="card card-signup card-plain">
+                        <div class="modal-header">
+                            <h5 class="modal-title card-title">Votre Panier</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="material-icons">clear</i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Vérifier et valider votre commande</h4>
+                                </div>
+                                <div class="col-lg-12 col-md-12 ml-auto mr-auto">
+                                    <div class="table-responsive">
+                                        <table class="table table-shopping">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center"></th>
+                                                <th>Produit</th>
+                                                <th class="th-description">Categorie</th>
+                                                <th class="th-description text-right">Note</th>
+                                                <th class="text-center">Prix</th>
+                                                <th class="text-right">Quantite</th>
+                                                {#<th class="text-right">Amount</th>#}
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% set prixT=0 %}
+                                            {% for produit in produits %}
+                                                {% set prixT= prixT+produit.prix %}
+                                                <tr>
+                                                    <td>
+                                                        <div class="img-container">
+                                                            <img src="{{ produit.image }}" alt="...">
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-name">
+                                                        <a href="#"> {{ produit.libelleProduit }} </a>
+                                                        <br>
+                                                        <small>{{ produit.description }} <br> by {{ produit.patisserie.libellePatisserie }}</small>
+                                                    </td>
+                                                    <td>
+                                                        {{ produit.categorie }}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{ produit.note }}
+                                                    </td>
+                                                    <td class="td-number text-center">
+                                                        <small>&#x20AC;</small>{{ produit.prix }}
+                                                    </td>
+                                                    <td class="td-number">
+                                                        1
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-round btn-info btn-sm" id="plus1Produit"> <i class="material-icons">remove</i> </button>
+                                                            <button class="btn btn-round btn-info btn-sm" id="minus1Produit"> <i class="material-icons">add</i> </button>
+                                                        </div>
+                                                    </td>
+                                                    {#<td class="td-number text-center">#}
+                                                    {#<small>&#x20AC;</small>549#}
+                                                    {#</td>#}
+                                                    <td class="td-actions">
+                                                        <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link">
+                                                            <i class="material-icons">close</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            <tr>
+                                            <td colspan="4">
+                                            </td>
+                                            <td class="td-price text-center">
+                                            <small>&#x20AC;</small>{{ prixT }}
+                                            </td>
+                                            <td class="td-total">
+                                                Total
+                                            </td>
+                                            {#<td colspan="3" class="text-right">#}
+                                            {#<button type="button" class="btn btn-info btn-round">Complete Purchase <i class="material-icons">keyboard_arrow_right</i></button>#}
+                                            {#</td>#}
+                                            </tr>
+                                            {#<tr>#}
+                                                {#<td>{{ livraison.dateLivraison }}</td>#}
+                                                {#<td>{{ livraison.prixLivraison }}</td>#}
+                                                {#<td>{{ livraison.etatLivraison }}</td>#}
+                                            {#</tr>#}
+                                            <tr>
+                                                {% if panier.idPanier!=null %}
+                                                <td colspan="3" class="text-right">
+                                                    {#<a href="{{ path('commande_create',{'panier':panier.idpanier,'prixT':prixT}) }}">#}
+                                                        {#<button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#completeLivraiosnl">Complete Purchase <i class="material-icons">keyboard_arrow_right</i></button>#}
+                                                    {#</a>#}
+                                                    <button class="btn btn-info btn-round" data-toggle="modal" data-dismiss="modal" data-target="#smallAlertModal">
+                                                        Complete Purchase <i class="material-icons">keyboard_arrow_right</i>
+                                                    </button>
+                                                </td>
+                                                {% endif %}
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ parent() }}
+        <script>
+            $(document).ready(function() {
+                $('#modaltest').click();
+                //init DateTimePickers
+                materialKit.initFormExtendedDatetimepickers();
+
+                // Sliders Init
+                materialKit.initSliders();
+
+                // $('#completeLivraiosn').onclick(function () {
+                //     $('#closeModal').click();
+                // });
+                // $('.datepicker').datetimepicker({
+                //     icons: {
+                //         time: "fa fa-clock-o",
+                //         date: "fa fa-calendar",
+                //         up: "fa fa-chevron-up",
+                //         down: "fa fa-chevron-down",
+                //         previous: 'fa fa-chevron-left',
+                //         next: 'fa fa-chevron-right',
+                //         today: 'fa fa-screenshot',
+                //         clear: 'fa fa-trash',
+                //         close: 'fa fa-remove'
+                //     }
+                // });
+            });
+
+        </script>
+    {% endblock %}
+    </body>
+{% endblock %}

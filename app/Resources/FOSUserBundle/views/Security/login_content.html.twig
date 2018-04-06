@@ -1,0 +1,139 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="page-header header-filter" style="background-image: url(&apos;{{ asset('assets/img/kit/pro/bg7.jpg') }}&apos;); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+                <div class="card card-signup">
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+{#<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</form>#}
+
+
+<form class="form" method="post" action="{{ path("fos_user_security_check") }}">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    <div class="card-header card-header-primary text-center">
+        <h4 class="card-title">Log in</h4>
+        <div class="social-line">
+            <a href="#pablo" class="btn btn-just-icon btn-link">
+                <i class="fa fa-facebook-square"></i>
+            </a>
+            <a href="#pablo" class="btn btn-just-icon btn-link">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#pablo" class="btn btn-just-icon btn-link">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </div>
+    </div>
+    <p class="description text-center">Or Be Classical</p>
+    <div class="card-body">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">face</i>
+                                        </span>
+            </div>
+            <input type="text" class="form-control" id="username" placeholder="Username/Email..." name="_username" value="{{ last_username }}" required="required" autocomplete="username" >
+        </div>
+        {#<div class="input-group">
+            <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">mail</i>
+                                        </span>
+            </div>
+            <input type="email" class="form-control" placeholder="Email...">
+        </div>#}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">lock_outline</i>
+                                        </span>
+            </div>
+            <input type="password" class="form-control" id="password" placeholder="Password..." name="_password" required="required" autocomplete="current-password">
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" id="remember_me" name="_remember_me"  type="checkbox" value="on" checked>
+                <span class="form-check-sign">
+                    <span class="check"></span>
+                </span>
+                Remember Me
+            </label>
+        </div>
+        <!-- If you want to add a checkbox to this form, uncomment this code
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="optionsCheckboxes" checked>
+                Subscribe to newsletter
+            </label>
+        </div> -->
+    </div>
+    <div class="footer text-center">
+        <input type="submit" class="btn btn-primary btn-link btn-wd btn-lg" id="_submit" name="_submit" value="Get Started" />
+        {#<a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>#}
+    </div>
+    <div class="footer text-center">
+        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-danger btn-link btn-wd btn-lg">Register</a>
+    </div>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <nav class="float-left">
+                <ul>
+                    <li>
+                        <a href="http://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://presentation.creative-tim.com">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.creative-tim.com/license">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright float-right">
+                &#xA9;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by
+                <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
+            </div>
+        </div>
+    </footer>
+</div>

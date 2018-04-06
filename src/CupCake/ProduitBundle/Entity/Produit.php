@@ -1,0 +1,243 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Alaa
+ * Date: 25/03/2018
+ * Time: 12:25
+ */
+
+namespace CupCake\ProduitBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="produit")
+ */
+class Produit
+{
+    /**
+     * @ORM\GeneratedValue
+     * @ORM\Id
+     * @ORM\Column(name="id_produit",type="integer")
+     */
+    private $id_produit;
+
+    /**
+     * @ORM\Column(name="libelle_produit",type="string",length=255)
+     */
+    private $libelle_produit;
+
+    /**
+     * @ORM\Column(name="categorie",type="string",length=255)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\Column(name="prix",type="float")
+     */
+    private $prix;
+
+    /**
+     * @ORM\Column(name="date_expiration",type="date")
+     */
+    private $date_expiration;
+
+    /**
+     * @ORM\Column(name="quantite",type="integer")
+     */
+    private $quantite;
+
+    /**
+     * @ORM\Column(name="description",type="string",length=255)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(name="note",type="integer")
+     */
+    private $note;
+
+    /**
+     * @ORM\Column(name="image",type="string",length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CupCake\PatisserieBundle\Entity\Patisserie")
+     * @ORM\JoinColumn(name="id_patisserie",referencedColumnName="id_patisserie")
+     */
+
+    private $patisserie;
+
+    /**
+     * @return mixed
+     */
+    public function getIdProduit()
+    {
+        return $this->id_produit;
+    }
+
+    /**
+     * @param mixed $id_produit
+     */
+    public function setIdProduit($id_produit)
+    {
+        $this->id_produit = $id_produit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLibelleProduit()
+    {
+        return $this->libelle_produit;
+    }
+
+    /**
+     * @param mixed $libelle_produit
+     */
+    public function setLibelleProduit($libelle_produit)
+    {
+        $this->libelle_produit = $libelle_produit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param mixed $prix
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateExpiration()
+    {
+        return $this->date_expiration;
+    }
+
+    /**
+     * @param mixed $date_expiration
+     */
+    public function setDateExpiration($date_expiration)
+    {
+        $this->date_expiration = $date_expiration;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * @param mixed $quantite
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+    /**
+     * Set patisserie
+     *
+     * @param \CupCake\PatisserieBundle\Entity\Patisserie $patisserie
+     *
+     * @return Produit
+     */
+    public function setPatisserie(\CupCake\PatisserieBundle\Entity\Patisserie $patisserie = null)
+    {
+        $this->patisserie = $patisserie;
+
+        return $this;
+    }
+
+    /**
+     * Get patisserie
+     *
+     * @return \CupCake\PatisserieBundle\Entity\Patisserie
+     */
+    public function getPatisserie()
+    {
+        return $this->patisserie;
+    }
+}

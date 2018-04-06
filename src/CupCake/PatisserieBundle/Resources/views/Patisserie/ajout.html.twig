@@ -1,0 +1,155 @@
+{% extends '@User/Default/dashboard.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <script>
+        UPLOADCARE_LOCALE = "en";
+        UPLOADCARE_TABS = "file url facebook gdrive gphotos dropbox instagram evernote flickr skydrive";
+        UPLOADCARE_PUBLIC_KEY = "0f8ee3d273a6f89d4a4f";
+    </script>
+    <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.2.3/uploadcare.full.min.js"></script>
+    <style>
+        .image-preview-single {
+            padding: 10px 0;
+        }
+        .image-preview-single > img {
+            width: 128px;
+            height: 96px;
+            vertical-align: middle;
+            visibility: hidden;
+            display: inline-block;
+        }
+    </style>
+{% endblock %}
+{% block dashboardContent %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">perm_identity</i>
+                            </div>
+                            <h4 class="card-title">Edit Profile -
+                                <small class="category">Complete your profile</small>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+                            {{ form_start(form) }}
+                            <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Libelle</label>
+                                            {{ form_widget(form.libelle_patisserie,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="text" class="form-control" disabled >#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Adresse</label>
+                                            {{ form_widget(form.adresse_patisserie,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="text" class="form-control">#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Date de création</label>
+                                            {{ form_widget(form.date_creation,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="email" class="form-control">#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Specialité </label>
+                                            {{ form_widget(form.specialite,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="text" class="form-control">#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Page Facebook</label>
+                                            {{ form_widget(form.compte_facebook,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="text" class="form-control">#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Compte Instagram</label>
+                                            {{ form_widget(form.compte_instagram,{'attr': {'class': 'form-control'}}) }}
+                                            {#<input type="text" class="form-control">#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Photo</label>
+                                            {#<input type="text" class="form-control">#}
+                                            <div class="image-preview-single">
+                                                {#img-raised rounded img-fluid#}
+                                                <img src="" alt="" class="img-raised rounded img-fluid">
+                                                <div></div>
+                                                {{ form_widget(form.image,{'attr': {'class': 'form-control' ,'type': 'hidden', 'role': 'uploadcare-uploader', 'name': 'content', 'data-crop': 'enabled', 'data-preview-step': 'true', 'data-images-only': 'true'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {#<div class="col-md-4">#}
+                                        {#<div class="form-group">#}
+                                            {#<label class="bmd-label-floating">Country</label>#}
+                                            {#<input type="text" class="form-control">#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="col-md-4">#}
+                                        {#<div class="form-group">#}
+                                            {#<label class="bmd-label-floating">Postal Code</label>#}
+                                            {#<input type="text" class="form-control">#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>A propos de votre patisserie</label>
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Votre patisserie en quelques mots ...</label>
+                                                {{ form_widget(form.description,{'attr': {'class': 'form-control','rows': '5'}}) }}
+                                                {#<textarea class="form-control" rows="5"></textarea>#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {#{{ form_widget(from.save,{'attr': {'class': 'btn btn-rose pull-right'}}) }}#}
+                                {#<button type="submit" class="btn btn-rose pull-right">Créer La Patisserie</button>#}
+                                <div class="clearfix"></div>
+                            {#{{ form_widget(form.id_utilisateur,{'attr': {'value': app.user}}) }}#}
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                            <a href="#">
+                                <img class="img" src="{{ app.user.image }}" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-category text-gray">Cup Cake</h6>
+                            <h4 class="card-title">{{ app.user.nom }} {{ app.user.prenom }}</h4>
+                            <p class="card-description">
+                                Salut {{ app.user.prenom }}, Vous pouvez maintenant créer votre patiesserie et booster votre commerce !
+                            </p>
+                            {#<a href="#" class="btn btn-rose btn-round">Follow</a>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

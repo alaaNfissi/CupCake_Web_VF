@@ -1,0 +1,7 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:home }
+
+user_dashboard:
+    path:   /dashboard
+    defaults: { _controller: UserBundle:Default:dashboard }

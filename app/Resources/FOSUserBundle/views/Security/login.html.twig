@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block pageTitle %}
+    Login To Cup Cake !
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css?v=2.0.2') }}">
+    {{ parent() }}
+    <script src="{{ asset('assets/js/bootstrap-material-design.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+    {% block pageClass %}
+        <body class="login-page ">
+    {% endblock %}
+
+    {% block navbar %}
+    {% endblock %}
+
+{% block main %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock %}
+
+ {% block footer %}
+ {% endblock %}
+
+ {% block scripts %}
+     {{ parent() }}
+     <!--  Google Maps Plugin  -->
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNduoRB6rgeXnHvjbppiJphh5p-KpT8Jc"></script>
+ {% endblock %}
+        </body>
+{% endblock %}

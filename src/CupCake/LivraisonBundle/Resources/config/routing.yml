@@ -1,0 +1,10 @@
+livraison_homepage:
+    path:     /
+    defaults: { _controller: LivraisonBundle:Default:index }
+livraison_ajout:
+    path:   /livraison/ajout
+    defaults: { _controller: LivraisonBundle:Livraison:ajoutLivraison }
+
+livraison_modifier:
+    path:   /livraison/modifier
+    defaults: { _controller: LivraisonBundle:Livraison:modifierLivraison }

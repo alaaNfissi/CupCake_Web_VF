@@ -1,0 +1,11 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+
+commande_create:
+    path:     /commande/create
+    defaults: { _controller: CommandeBundle:Commande:createCommande }
+
+commande_dashboard:
+    path:   /commande/dashboard
+    defaults: { _controller: CommandeBundle:Commande:commandedashboard }

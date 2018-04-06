@@ -1,0 +1,19 @@
+patisserie_homepage:
+    path:     /
+    defaults: { _controller: PatisserieBundle:Default:index }
+
+patisserie_ajout:
+    path:   /ajout
+    defaults: { _controller: PatisserieBundle:Patisserie:ajoutPatisserie }
+
+patisserie_modifier:
+    path:   /modifier
+    defaults: { _controller: PatisserieBundle:Patisserie:modifierPatisserie }
+
+patisserie_space:
+    path:   /space
+    defaults: { _controller: PatisserieBundle:Patisserie:spacePatisserie }
+
+patisserie_space_libelle:
+    path:   /space/{libelle_patisserie}
+    defaults: { _controller: PatisserieBundle:Patisserie:findByLibelle }
