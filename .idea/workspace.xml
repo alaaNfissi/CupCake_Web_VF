@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c58572cc-ecb5-49c5-904c-30f995c88f42" name="Default" comment="" />
+    <list default="true" id="c58572cc-ecb5-49c5-904c-30f995c88f42" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,16 +33,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5070">
-              <caret line="195" column="95" lean-forward="false" selection-start-line="195" selection-start-column="95" selection-end-line="195" selection-end-column="95" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,14 +65,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Panier.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Panier.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CupCake/PanierBundle/Entity/Panier.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
+            <state relative-caret-position="208">
               <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding>
                 <element signature="e#129#170#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="42" column="106" lean-forward="true" selection-start-line="42" selection-start-column="106" selection-end-line="42" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Patisserie.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/PatisserieBundle/Entity/Patisserie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="76" column="20" lean-forward="false" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,16 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="156">
               <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show_content.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="988">
-              <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -182,7 +184,7 @@
     </commandsHistory>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/CupCake_Web" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -315,8 +317,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -742,7 +744,7 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CupCake_Web_VF/CupCake_Web_1.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="profileC&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Controller/ProfileController.php&#10;pr&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Controller/ProfileController.php&#10;pro&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Controller/ProfileController.php&#10;edit.html&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/edit.html.twig&#10;edit&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/edit.html.twig&#10;profileController&#9;null&#9;null&#10;profile&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Form/Type/ProfileFormType.php&#10;edit_c&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/edit_content.html.twig&#10;re&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig&#10;register_c&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig&#10;reg&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;login&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;show&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show.html.twig&#10;register&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;layout.ht&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/layout.html.twig&#10;registration&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php&#10;security&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Controller/SecurityController.php&#10;register.html&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;login.html&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;log&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig&#10;login_con&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig&#10;Registration&#9;null&#9;null&#10;register_co&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig&#10;register.htm&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;layout.html&#9;FILE&#9;file://C:/wamp64/www/CupCake_Web_1.1/vendor/friendsofsymfony/user-bundle/Resources/views/layout.html.twig&#10;securityCon&#9;null&#9;null" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -809,21 +811,23 @@
       <workItem from="1523013649947" duration="187000" />
       <workItem from="1523013848363" duration="32000" />
       <workItem from="1523013890207" duration="599000" />
+      <workItem from="1523017267705" duration="42000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265302000" />
+    <option name="totallyTimeSpent" value="265344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23523094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23845327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -911,13 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1248">
           <caret line="53" column="7" lean-forward="false" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/PatisserieBundle/Entity/Patisserie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1586">
-          <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="71" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1077,13 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="55" column="14" lean-forward="false" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileController.php" />
     <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/UserBundle.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1210,11 +1200,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CupCake/PanierBundle/Entity/Panier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="208">
           <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
             <element signature="e#129#170#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="42" column="106" lean-forward="true" selection-start-line="42" selection-start-column="106" selection-end-line="42" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/PatisserieBundle/Entity/Patisserie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="76" column="20" lean-forward="false" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
