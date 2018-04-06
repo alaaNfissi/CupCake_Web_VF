@@ -75,5 +75,23 @@ class CommandeRepository extends EntityRepository
                 ->setParameter('id',$id_commande);
             return $query->getResult();
         }
-
+    public function listCommandesUtilisateur($utilisateur)
+    {
+        $con = $this->getEntityManager()->getConnection();
+        $result = $con->executeQuery("SELECT DISTINCT(cd.id_commande),cd.* FROM commande cd JOIN panier pa ON pa.id_panier=cd.id_panier WHERE pa.id_utilisateur = :utilisateur",array('utilisateur' =>$utilisateur));
+        $commandesList=$result->fetchAll();
+        $commandes=array();
+        for ($i=0;$i<count($commandesList);$i++)
+        {
+            $commande=new Commande();
+            $commande->setIdCommande($commandesList[$i]['id_commande']);
+            $commande->setNumCommande($commandesList[$i]['num_commande']);
+            $panier = $this->_em->getRepository("PanierBundle:Panier")->findOneBy(['id_panier' => $commandesList[$i]['id_panier']]);
+            $commande->setPanier($panier);
+            $commande->setDateCommande($commandesList[$i]['date_commande']);
+            $commande->setPrixTotale($commandesList[$i]['prix_totale']);
+            $commandes[$i]=$commande;
+        }
+        return $commandes;
+    }
 }

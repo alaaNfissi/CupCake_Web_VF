@@ -5,3 +5,7 @@ user_homepage:
 user_dashboard:
     path:   /dashboard
     defaults: { _controller: UserBundle:Default:dashboard }
+
+profile_details:
+    path:   /profile/details
+    defaults: { _controller: UserBundle:ProfileDetails:profiledetails }
