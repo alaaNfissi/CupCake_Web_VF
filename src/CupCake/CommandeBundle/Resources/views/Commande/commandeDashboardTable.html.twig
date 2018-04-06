@@ -63,9 +63,11 @@
                                         {#<button class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="modal" data-target="#signupModal">#}
                                             {#<i class="material-icons">shopping_cart</i>#}
                                         {#</button>#}
-                                        <a href="#" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#signupModal_{{ i }}"><i class="material-icons">remove_red_eye</i></a>
-
-                                        <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                                        {% if livraisons[i].idLivraison == 3 %}
+                                            <a class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="La Commande est Annulée" data-container="body">remove_shopping_cart</i></a>
+                                        {% endif %}
+                                        <a href="#" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#signupModal_{{ i }}"><i class="material-icons" data-placement="top" title="Détails Panier et Livraison" data-container="body" data-toggle="tooltip">remove_red_eye</i></a>
+                                        <a href="#" class="btn btn-link btn-primary btn-just-icon remove"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="Cacher" data-container="body">visibility_off</i></a>
                                     </td>
                                 </tr>
                                     {% set i=i+1 %}
@@ -120,14 +122,22 @@
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 0}) }}" selected>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 1}) }}">{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 2}) }}">{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
                                                     {% elseif livraisons[j].etatlivraison == 1 %}
                                                         <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 1}) }}" selected>{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 2}) }}">{{ livraisons[j].etatLivraionString[2] }}</option>
-                                                    {% else %}
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
+                                                    {% elseif livraisons[j].etatlivraison == 2 %}
                                                         <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="1" disabled>{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="{{ path('livraison_modifier',{'id': livraisons[j].IdLivraison,'etat': 2}) }}" selected>{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
+                                                    {% else %}
+                                                        <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
+                                                        <option value="1" disabled>{{ livraisons[j].etatLivraionString[1] }}</option>
+                                                        <option value="2" disabled>{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" selected>{{ livraisons[j].etatLivraionString[3] }}</option>
                                                     {% endif %}
                                                 </select>
                                             </td>

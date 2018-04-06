@@ -197,13 +197,10 @@
                                                                 <td>{{ commande.prixTotale }}</td>
                                                                 {#<td>{{ commande.panier.idpanier }}</td>#}
                                                                 <td class="text-right">
-                                                                    {#<a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>#}
-                                                                    {#<button class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="modal" data-target="#signupModal">#}
-                                                                    {#<i class="material-icons">shopping_cart</i>#}
-                                                                    {#</button>#}
-                                                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#signupModal_{{ i }}"><i class="material-icons">remove_red_eye</i></a>
-
-                                                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                                                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#signupModal_{{ i }}"><i class="material-icons" data-placement="top" title="Détails Panier et Livraison" data-container="body" data-toggle="tooltip">remove_red_eye</i></a>
+                                                                    <button value="{{ path('commande_delete',{'id':livraisons[i].idLivraison,'etat':3 }) }}" hidden id="urlBtn"></button>
+                                                                    <a class="btn btn-link btn-danger btn-just-icon" data-toggle="modal" data-target="#smallAlertModal"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="Annuler La Commande" data-container="body">remove_shopping_cart</i></a>
+                                                                    <a href="#" class="btn btn-link btn-primary btn-just-icon remove"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="Cacher" data-container="body">visibility_off</i></a>
                                                                 </td>
                                                             </tr>
                                                             {% set i=i+1 %}
@@ -241,6 +238,22 @@
     {% endblock %}
 
     {% block scripts %}
+        <div class="modal fade" id="smallAlertModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-small" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h5>Etes vous sur ? </h5>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Non</button>
+                        <button type="button" id="confirmerAnnulation" class="btn btn-success btn-link">Oui</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% set j=0 %}
         {% for commande in commandes %}
         {% if j<commandes|length %}
@@ -280,14 +293,22 @@
                                                         <option value="0" selected>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="1" disabled>{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="2" disabled>{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
                                                     {% elseif livraisons[j].etatlivraison == 1 %}
                                                         <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="1" selected>{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="2" disabled>{{ livraisons[j].etatLivraionString[2] }}</option>
-                                                    {% else %}
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
+                                                    {% elseif livraisons[j].etatlivraison == 2 %}
                                                         <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
                                                         <option value="1" disabled>{{ livraisons[j].etatLivraionString[1] }}</option>
                                                         <option value="2" selected>{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" disabled>{{ livraisons[j].etatLivraionString[3] }}</option>
+                                                    {% else %}
+                                                        <option value="0" disabled>{{ livraisons[j].etatLivraionString[0] }}</option>
+                                                        <option value="1" disabled>{{ livraisons[j].etatLivraionString[1] }}</option>
+                                                        <option value="2" disabled>{{ livraisons[j].etatLivraionString[2] }}</option>
+                                                        <option value="3" selected>{{ livraisons[j].etatLivraionString[3] }}</option>
                                                     {% endif %}
                                                 </select>
                                             </td>
@@ -398,6 +419,8 @@
         {% endif %}
         {% endfor %}
         {{ parent() }}
+        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+        <script src="{{ asset('assets/js/plugins/jquery.datatables.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#datatables').DataTable({
@@ -438,6 +461,16 @@
                 // });
 
                 $('.card .material-datatables label').addClass('form-group');
+
+                $(function(){
+                    $('#confirmerAnnulation').on('click', function () {
+                        var url = $('#urlBtn').val();
+                        if (url) {
+                            window.location = url;
+                        }
+                        return false;
+                    });
+                });
 
             });
         </script>

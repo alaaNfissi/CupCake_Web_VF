@@ -39,21 +39,32 @@ class CommandeController extends Controller
 
         public function commandedashboardAction()
         {
+            $livraisons=array();
+            $commandes=array();
+            $ttProduits=array();
             $em=$this->getDoctrine()->getManager();
             $patisserie=$em->getRepository('PatisserieBundle:Patisserie')->findOneBy(array('utilisateur'=>$this->getUser()));
             if($patisserie != null)
             {
-                $commandes=$em->getRepository('CommandeBundle:Commande')->listCommandes($patisserie->getIdPatisserie());
+                $commandesT=$em->getRepository('CommandeBundle:Commande')->listCommandes($patisserie->getIdPatisserie());
                 $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
 //            dump($commandes);
 
-                for($i=0;$i<count($commandes);$i++)
+                for($i=0;$i<count($commandesT);$i++)
                 {
-                    $paniers=$em->getRepository('PanierBundle:Panier')->findBy(array('id_panier'=>$commandes[$i]->getPanier()->getIdPanier()));
+                    $livraisonsT[$i]=$em->getRepository('LivraisonBundle:Livraison')->findOneBy(array('commande'=>$commandesT[$i]));
+                    $paniers = $em->getRepository('PanierBundle:Panier')->findBy(array('id_panier' => $commandesT[$i]->getPanier()->getIdPanier()));
                     //$paniers[$i]=$panier;
-                    $produits=$em->getRepository('PanierBundle:Panier')->listeProduitPanierCommande($paniers);
-                    $livraisons[$i]=$em->getRepository('LivraisonBundle:Livraison')->findOneBy(array('commande'=>$commandes[$i]));
-                    $ttProduits[$i]=$produits;
+                    $produits = $em->getRepository('PanierBundle:Panier')->listeProduitPanierCommande($paniers);
+                    $ttProduitsT[$i] = $produits;
+//                    if($livraisonsT[$i] !=null) {
+//                        if ($livraisonsT[$i]->getEtatLivraison() != 3) {
+                            array_push($livraisons,$livraisonsT[$i]);
+                            array_push($commandes,$commandesT[$i]);
+                            array_push($ttProduits,$ttProduitsT[$i]);
+//                        }
+//                    }
+//                    dump($ttProduits[$i]);
                 }
             }
             else
@@ -63,8 +74,26 @@ class CommandeController extends Controller
                 $ttProduits=array();
                 $livraisons=array();
             }
-//            dump($livraisons);
+            dump($livraisons);
             return $this->render('CommandeBundle:Commande:commandeDashboardTable.html.twig',array('commandes'=>$commandes,'patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes,'ttProduits'=>$ttProduits,'livraisons'=>$livraisons));
+        }
+
+        public function annulerCommandeAction(Request $request)
+        {
+            $em=$this->getDoctrine()->getManager();
+            $livraison=$em->getRepository('LivraisonBundle:Livraison')->find($request->get('id'));
+            $livraison->setEtatLivraison($request->get('etat'));
+            $em->persist($livraison);
+            $em->flush();
+//            $dateDiff=date_diff(new \DateTime(),$commande->getDateCommande());
+            $test=-1;
+//            if($dateDiff->format("%R%a")<2)
+//            {
+//                $em->remove($commande);
+//                $em->flush();
+//                $test=1;
+//            }
+            return $this->redirectToRoute('profile_details',array('testDelete'=>$test));
         }
 
 }

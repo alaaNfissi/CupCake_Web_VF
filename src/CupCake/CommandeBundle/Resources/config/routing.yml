@@ -9,3 +9,6 @@ commande_create:
 commande_dashboard:
     path:   /commande/dashboard
     defaults: { _controller: CommandeBundle:Commande:commandedashboard }
+commande_delete:
+    path:   /profile/details/commande/delete
+    defaults: { _controller: CommandeBundle:Commande:annulerCommande }

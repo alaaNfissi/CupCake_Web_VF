@@ -33,7 +33,7 @@ class CommandeRepository extends EntityRepository
         public function listCommandes($patisserie)
         {
             $con = $this->getEntityManager()->getConnection();
-            $result = $con->executeQuery("SELECT DISTINCT(cd.id_commande),cd.* FROM commande cd JOIN panier pa ON pa.id_panier=cd.id_panier WHERE pa.id_patisserie = :patisserie",array('patisserie' =>$patisserie));
+            $result = $con->executeQuery("SELECT DISTINCT(cd.id_commande),cd.* FROM commande cd JOIN panier pa ON pa.id_panier=cd.id_panier WHERE pa.id_patisserie = :patisserie ",array('patisserie' =>$patisserie));
             $commandesList=$result->fetchAll();
             $commandes=array();
 //            $i=0;

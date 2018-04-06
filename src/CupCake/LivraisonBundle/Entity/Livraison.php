@@ -39,7 +39,7 @@ class Livraison
      */
     private $etat_livraison;
 
-    public $etatLivraionString=array("La commande est en cours du traitement","La commande est en route","La Commande est livrée");
+    public $etatLivraionString=array("La commande est en cours du traitement","La commande est en route","La Commande est livrée","La commande est Annulée");
     /**
      * @ORM\OneToOne(targetEntity="CupCake\CommandeBundle\Entity\Commande")
      * @ORM\JoinColumn(name="id_commande",referencedColumnName="id_commande")
