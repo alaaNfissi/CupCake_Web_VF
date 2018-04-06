@@ -10,6 +10,7 @@ namespace CupCake\CommandeBundle\Controller;
 
 
 use CupCake\CommandeBundle\Entity\Commande;
+use CupCake\PatisserieBundle\Entity\Patisserie;
 use CupCake\ProduitBundle\Entity\Produit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,17 +41,27 @@ class CommandeController extends Controller
         {
             $em=$this->getDoctrine()->getManager();
             $patisserie=$em->getRepository('PatisserieBundle:Patisserie')->findOneBy(array('utilisateur'=>$this->getUser()));
-            $commandes=$em->getRepository('CommandeBundle:Commande')->listCommandes($patisserie->getIdPatisserie());
-            $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
+            if($patisserie != null)
+            {
+                $commandes=$em->getRepository('CommandeBundle:Commande')->listCommandes($patisserie->getIdPatisserie());
+                $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
 //            dump($commandes);
 
-            for($i=0;$i<count($commandes);$i++)
+                for($i=0;$i<count($commandes);$i++)
+                {
+                    $paniers=$em->getRepository('PanierBundle:Panier')->findBy(array('id_panier'=>$commandes[$i]->getPanier()->getIdPanier()));
+                    //$paniers[$i]=$panier;
+                    $produits=$em->getRepository('PanierBundle:Panier')->listeProduitPanierCommande($paniers);
+                    $livraisons[$i]=$em->getRepository('LivraisonBundle:Livraison')->findOneBy(array('commande'=>$commandes[$i]));
+                    $ttProduits[$i]=$produits;
+                }
+            }
+            else
             {
-                $paniers=$em->getRepository('PanierBundle:Panier')->findBy(array('id_panier'=>$commandes[$i]->getPanier()->getIdPanier()));
-                //$paniers[$i]=$panier;
-                $produits=$em->getRepository('PanierBundle:Panier')->listeProduitPanierCommande($paniers);
-                $livraisons[$i]=$em->getRepository('LivraisonBundle:Livraison')->findOneBy(array('commande'=>$commandes[$i]));
-                $ttProduits[$i]=$produits;
+                $commandes=array();
+                $nbreCommandes=null;
+                $ttProduits=array();
+                $livraisons=array();
             }
 //            dump($livraisons);
             return $this->render('CommandeBundle:Commande:commandeDashboardTable.html.twig',array('commandes'=>$commandes,'patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes,'ttProduits'=>$ttProduits,'livraisons'=>$livraisons));

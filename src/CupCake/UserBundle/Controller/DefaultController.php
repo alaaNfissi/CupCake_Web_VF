@@ -53,7 +53,15 @@ class DefaultController extends Controller
 
         $em=$this->getDoctrine()->getManager();
         $patisserie=$em->getRepository('PatisserieBundle:Patisserie')->findOneBy(array('utilisateur'=>$this->getUser()));
-        $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
+        dump($patisserie);
+        if($patisserie == null)
+        {
+            $nbreCommandes=null;
+        }
+        else
+        {
+            $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
+        }
         return $this->render('UserBundle:Default:dashboard.html.twig',array('patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes));
     }
 }

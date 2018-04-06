@@ -19,7 +19,7 @@ class PatisserieController extends Controller
     public function ajoutPatisserieAction(Request $request)
     {
         $patisserie=new Patisserie();
-        $patisserie->setIdUtilisateur($this->getUser());
+        $patisserie->setUtilisateur($this->getUser());
         $form=$this->createForm(AjoutPatisserieFormType::class,$patisserie);
         $form->handleRequest($request);
         if($form->isValid())
