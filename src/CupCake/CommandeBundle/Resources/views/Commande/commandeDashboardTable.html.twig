@@ -284,10 +284,10 @@
                 $('#dynamic_select').on('change', function () {
                     var url = $(this).val();
                     if (url) {
-                        setTimeout(function(){
+                        // setTimeout(function(){
                             window.location = url;
-                        }, 2000);
-                        $('#alertLivraison').toggle();
+                        // }, 2000);
+                        // $('#alertLivraison').toggle();
                     }
                     return false;
                 });

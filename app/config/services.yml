@@ -21,6 +21,11 @@ services:
         class:  CupCake\UserBundle\Form\ProfileFormType
         tags:
             - { name: form.type }
+    app.redirect_after_registration_subscriber:
+        class: CupCake\UserBundle\EventListener\RedirectAfterRegistrationSubscriber
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:
