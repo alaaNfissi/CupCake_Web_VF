@@ -513,16 +513,18 @@
                                         <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
                                             <i class="material-icons">refresh</i>
                                         </button>
-                                        <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
-                                            <i class="material-icons">edit</i>
+                                        <a href="{{ path('statistique_homepage') }}">
+                                        <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Voir plus de détails">
+                                            <i class="material-icons">remove_red_eye</i>
                                         </button>
+                                        </a>
                                     </div>
-                                    <h4 class="card-title">Website Views</h4>
-                                    <p class="card-category">Last Campaign Performance</p>
+                                    <h4 class="card-title">Stats Commandes</h4>
+                                    <p class="card-category">Répartition des prix selon chaque commande</p>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                        <i class="material-icons">access_time</i> stats sent 1 minute ago
                                     </div>
                                 </div>
                             </div>
@@ -607,12 +609,12 @@
                                     <div class="card-icon">
                                         <i class="material-icons">equalizer</i>
                                     </div>
-                                    <p class="card-category">Website Visits</p>
-                                    <h3 class="card-title">75.521</h3>
+                                    <p class="card-category">Stats Commandes</p>
+                                    <h3 class="card-title">{{ nbreCommandes }} Bars</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">local_offer</i> Tracked from Google Analytics
+                                        <i class="material-icons">local_offer</i> <a href="{{ path('statistique_homepage') }}">Tracked from Google Charts</a>
                                     </div>
                                 </div>
                             </div>

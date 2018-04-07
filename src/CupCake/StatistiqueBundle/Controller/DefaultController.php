@@ -38,7 +38,7 @@ class DefaultController extends Controller
             ->setBars('vertical')
             ->setHeight(500)
             ->setWidth(900)
-            ->setColors(['#1b9e77'])
+            ->setColors(['#dc2365'])
             ->getVAxis()
             ->setFormat('decimal');
         return $this->render('StatistiqueBundle:Default:index.html.twig',array('barChart'=>$chart,'patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes));
