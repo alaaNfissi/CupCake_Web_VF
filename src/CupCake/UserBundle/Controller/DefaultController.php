@@ -44,6 +44,7 @@ class DefaultController extends Controller
             $panier=new Panier();
         }
 //        $livraison=new Livraison();
+        dump($panier);
         $this->get('twig')->addGlobal('produits', $produits);
         return $this->render('UserBundle:Default:home.html.twig',array('patisseries'=> $patisseries,'panier'=> $panier,'Bcommande'=>$param,'LCommande'=>$LCommande[0]));
     }

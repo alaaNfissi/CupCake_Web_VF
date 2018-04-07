@@ -15,19 +15,21 @@
         {{ parent() }}
     {% endblock %}
     {% block main %}
-        {% if panier.idPanier != null %}
-            {#{% block mailsnbr %}#}
-                {#<span class="notification">1</span>#}
-            {#{% endblock %}#}
+
+            {% block mailsnbr %}
+                {% if panier.idPanier != null %}
+                    <span class="notification">P</span>
+                {% endif %}
+            {% endblock %}
             {% block mails %}
-                {#<span class="notification">1</span>#}
+             {% if panier.idPanier != null %}
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">Vos notifications</h6>
                     <a class="dropdown-item">vous avez un panier n'est pas encore valider !</a>
                 </div>
+             {% endif %}
             {% endblock %}
-            {% else %}
-        {% endif %}
+            {#{% else %}#}
         <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url({{ asset('assets/img/kit/pro/bg0.jpg') }});">
             <div class="container">
                 <div class="row">
