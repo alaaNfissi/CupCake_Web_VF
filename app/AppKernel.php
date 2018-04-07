@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new CupCake\PanierBundle\PanierBundle(),
             new CupCake\ProduitBundle\ProduitBundle(),
             new CupCake\LivraisonBundle\LivraisonBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new CupCake\StatistiqueBundle\StatistiqueBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,0 +1,4 @@
+services:
+#    statistique.example:
+#        class: CupCake\StatistiqueBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

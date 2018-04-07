@@ -1,0 +1,26 @@
+{% extends '@User/Default/dashboard.html.twig' %}
+
+{% block dashboardContent %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div id="bar_chart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    {{ gc_language('fr') }}
+
+    {{ gc_draw(barChart, 'bar_chart') }}
+</script>
+{% endblock %}

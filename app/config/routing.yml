@@ -24,6 +24,9 @@ livraison:
     resource: "@LivraisonBundle/Resources/config/routing.yml"
     prefix:   /
 
+statistique:
+    resource: "@StatistiqueBundle/Resources/config/routing.yml"
+    prefix:   /
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
