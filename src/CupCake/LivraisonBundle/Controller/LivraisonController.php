@@ -23,7 +23,9 @@ class LivraisonController extends Controller
         $commande=$em->getRepository('CommandeBundle:Commande')->findCommandeById($request->get('id_commande'));
             $livraison->setCommande($commande[0]);
             $livraison->setPrixLivraison($request->get('prix_livraison')*0.1);
-            $livraison->setDateLivraison(new \DateTime());
+            $dateL=new \DateTime($request->get('date_livraison'));
+//            dump($request->get('date_livraison'));
+            $livraison->setDateLivraison($dateL);
             $livraison->setEtatLivraison($request->get('etat_livraison'));
 //            $modele->setPays($request->get('pays'));
 

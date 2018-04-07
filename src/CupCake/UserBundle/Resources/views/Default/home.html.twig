@@ -322,18 +322,18 @@
                     {#<form method="POST">#}
                     <div class="modal-body text-center">
                         <h5>Minimum aprés deux jours </h5>
-                            <input class="form-control" type="date" name="date_livraison" hidden value="{{ date('now')|date }}">
-                            <input class="form-control" name="id_commande" type="number" hidden value="{{ LCommande.idCommande}}"/>
-                            <input class="form-control" name="prix_livraison" hidden type="number" value="{{ LCommande.prixTotale }}"/>
-                            <input class="form-control" name="etat_livraison" hidden type="number" value="0">
+                            <input class="form-control datepicker" type="text" name="date_livraison" id="date_livraison" value="{{ "now"|date("Y-m-d") }}">
+                            {#<input class="form-control" name="id_commande" type="number" hidden value="{{ LCommande.idCommande}}"/>#}
+                            {#<input class="form-control" name="prix_livraison" hidden type="number" value="{{ LCommande.prixTotale }}"/>#}
+                            {#<input class="form-control" name="etat_livraison" hidden type="number" value="0">#}
                     </div>
                     <div class="modal-footer justify-content-center">
                         {#<button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>#}
                         {#<a href="{{ path('livraison_ajout')}}">#}
                         {#<input type="submit" class="btn btn-success btn-link" value="Confirmer">#}
-                        <a href="{{ path('livraison_ajout',{'id_commande':LCommande.idCommande,'prix_livraison':LCommande.prixTotale,'etat_livraison':1})}}">
-                        <button type="submit" class="btn btn-success btn-link">Confirmer</button>
-                        </a>
+                        {#<a href="{{ path('livraison_ajout',{'id_commande':LCommande.idCommande,'prix_livraison':LCommande.prixTotale,'etat_livraison':0})}}">#}
+                        <button type="button" class="btn btn-success btn-link" id="confirmationUrlBtn" value="{{ path('livraison_ajout',{'id_commande':LCommande.idCommande,'prix_livraison':LCommande.prixTotale,'etat_livraison':0})}}">Confirmer</button>
+                        {#</a>#}
                         {#</a>#}
                     </div>
                     {#</form>#}
@@ -466,21 +466,33 @@
                 // $('#completeLivraiosn').onclick(function () {
                 //     $('#closeModal').click();
                 // });
-                // $('.datepicker').datetimepicker({
-                //     icons: {
-                //         time: "fa fa-clock-o",
-                //         date: "fa fa-calendar",
-                //         up: "fa fa-chevron-up",
-                //         down: "fa fa-chevron-down",
-                //         previous: 'fa fa-chevron-left',
-                //         next: 'fa fa-chevron-right',
-                //         today: 'fa fa-screenshot',
-                //         clear: 'fa fa-trash',
-                //         close: 'fa fa-remove'
-                //     }
-                // });
+                $('.datepicker').datetimepicker({
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        up: "fa fa-chevron-up",
+                        down: "fa fa-chevron-down",
+                        previous: 'fa fa-chevron-left',
+                        next: 'fa fa-chevron-right',
+                        today: 'fa fa-screenshot',
+                        clear: 'fa fa-trash',
+                        close: 'fa fa-remove'
+                    }
+                });
+
             });
 
+            $(function(){
+                $('#confirmationUrlBtn').on('click', function () {
+                    console.log();
+                    var url = $(this).val()+'&date_livraison='+$('#date_livraison').val();
+                    console.log(url);
+                    if (url) {
+                        window.location = url;
+                    }
+                    return false;
+                });
+            });
         </script>
     {% endblock %}
     </body>

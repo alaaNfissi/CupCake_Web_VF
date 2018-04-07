@@ -144,6 +144,7 @@
             {#<label class="label-control">Date Picker</label>#}
             {#<input type="text" id="BSdatepicker" class="form-control datepicker" value="10/10/2016">#}
         {#</div>#}
+        {#<input type="text" class="form-control datepicker" value="{{ "now"|date('Y-m-d') }}" id="date_naissance_picker">#}
         {{ form_widget(form.date_naissance,{'attr': {'class': 'form-control', 'id' : 'date_naissance', 'placeholder': 'Date de naissance ...'}}) }}
     </div>
 </div>
@@ -301,3 +302,36 @@
         </div>
     </footer>
 </div>
+{#<script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>#}
+{#<script type="text/javascript">#}
+        {#$(document).ready(function() {#}
+            {#$('.datetimepicker').datetimepicker({#}
+                {#icons: {#}
+                    {#time: "fa fa-clock-o",#}
+                    {#date: "fa fa-calendar",#}
+                    {#up: "fa fa-chevron-up",#}
+                    {#down: "fa fa-chevron-down",#}
+                    {#previous: 'fa fa-chevron-left',#}
+                    {#next: 'fa fa-chevron-right',#}
+                    {#today: 'fa fa-screenshot',#}
+                    {#clear: 'fa fa-trash',#}
+                    {#close: 'fa fa-remove'#}
+                {#}#}
+            {#});#}
+            {#$(function () {#}
+                {#$('#date_naissance_picker').on('click', function () {#}
+                     {#var date=new Date($('#date_naissance_picker').val());#}
+                    {#console.log(date);#}
+                    {#//$('#date_naissance').#}
+                    {#// console.log();#}
+                    {#// var url = $(this).val()+'&date_livraison='+$('#date_livraison').val();#}
+                    {#// console.log(url);#}
+                    {#// if (url) {#}
+                    {#//     window.location = url;#}
+                    {#// }#}
+                    {#return false;#}
+                {#});#}
+            {#});#}
+        {#});#}
+
+    {#</script>#}
