@@ -12,7 +12,7 @@ namespace CupCake\PatisserieBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CupCake\PatisserieBundle\Repository\PatisserieRepository")
  * @ORM\Table(name="patisserie")
  */
 class Patisserie

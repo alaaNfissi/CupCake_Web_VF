@@ -17,3 +17,7 @@ patisserie_space:
 patisserie_space_libelle:
     path:   /space/{libelle_patisserie}
     defaults: { _controller: PatisserieBundle:Patisserie:findByLibelle }
+
+patisserie_recherche_avancee:
+    path: /search
+    defaults: { _controller: PatisserieBundle:Patisserie:recherchePatisserieAjax }

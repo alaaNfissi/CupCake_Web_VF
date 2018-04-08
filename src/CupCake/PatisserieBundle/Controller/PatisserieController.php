@@ -12,7 +12,10 @@ namespace CupCake\PatisserieBundle\Controller;
 use CupCake\PatisserieBundle\Entity\Patisserie;
 use CupCake\PatisserieBundle\Form\AjoutPatisserieFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class PatisserieController extends Controller
 {
@@ -62,4 +65,23 @@ class PatisserieController extends Controller
         return $this->render('@Patisserie/Patisserie/patisserieSpace.html.twig',array('patisserie'=>$patisserie));
     }
 
+    public function recherchePatisserieAjaxAction(Request $request)
+    {
+        $patisserie = new Patisserie();
+        $em=$this->getDoctrine()->getManager();
+        $patisserie=$em->getRepository('PatisserieBundle:Patisserie')->findAll();
+        //$form=$this->createForm(rechercheVoitureForm::class,$voiture);
+        //$form->handleRequest($request);
+        dump($patisserie);
+        if($request->isXmlHttpRequest())
+        {
+            dump(1);
+            $serializer=new Serializer(array(new ObjectNormalizer()));
+            $patisserie=$em->getRepository('PatisserieBundle:Patisserie')->findLibelleDQL($request->get('libelle'));
+
+            $data=$serializer->normalize($patisserie);
+            return new JsonResponse($data);
+        }
+        return $this->render('@Patisserie/Patisserie/RechercheAvanceePatisserie.html.twig',array('Spatisseries'=>$patisserie));
+    }
 }

@@ -7,7 +7,7 @@ user:
 
 patisserie:
     resource: "@PatisserieBundle/Resources/config/routing.yml"
-    prefix:   /dashboard/patisserie
+    prefix:   /
 
 produit:
     resource: "@ProduitBundle/Resources/config/routing.yml"

@@ -42,20 +42,26 @@
     {% block pageClass %}
     {% endblock %}
     {% block navbar %}
+
         <!--         inverse navbar with notifications     -->
         <nav class="navbar navbar-inverse navbar-expand-lg bg-primary navbar-color-on-scroll navbar-transparent fixed-top " color-on-scroll="100" id="sectionsNav" role="navigation-demo">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-translate">
                     {#<a class="navbar-brand" href="#">Navbar with notification</a>#}
-                    <form class="form-inline ml-auto">
-                        <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                    <form class="form-inline ml-auto" method="post">
+                    <a href="{{ path('patisserie_recherche_avancee') }}">
+                        <button type="button" class="btn btn-white btn-raised btn-fab btn-round">
                             <i class="material-icons">search</i>
                         </button>
-                        <div class="form-group has-white">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
+                    </a>
+                        {#<div class="form-group has-white">#}
+                            {#<input type="text" class="form-control" placeholder="Search" id="searchPatisserie">#}
+                        {#</div>#}
                     </form>
+                    {#<div id="res">#}
+
+                    {#</div>#}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         <span class="navbar-toggler-icon"></span>
@@ -126,9 +132,15 @@
             </div>
             <!-- /.container-->
         </nav>
+
     {% endblock %}
 
+    {#{% block searchResult %}#}
+
+    {#{% endblock %}#}
+
     {% block main %}
+
     {% endblock %}
     {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>#}
     {% block footer %}
@@ -197,6 +209,48 @@
     <script src="{{ asset('assets/js/material-kit.js?v=2.0.2') }}"></script>
     <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
     <script src="{{ asset('assets/assets-for-demo/js/material-kit-demo.js') }}"></script>
+    {#<script>#}
+        {#$('#searchPatisserie').keyup(function () {#}
+            {#// alert("te5deeem");#}
+            {#var libelle=$('#searchPatisserie').val();#}
+            {#var DATA= 'libelle= ' +libelle;#}
+            {#$.ajax({#}
+                {#type:"POST",#}
+                {#url: "{{ path('patisserie_recherche_avancee') }}",#}
+                {#data:DATA,#}
+                {#success:function (data) {#}
+                    {#console.log(data);#}
+                    {#// $("#div").html("<table id='res' border='1'>" +#}
+                    {#//     "<td>Série</td><td>Date Mise Circulation</td><td>Marque</td><td>Modele</td></table>");#}
+                    {#$.each(data,function (k,el) {#}
+                        {#// $("#affichage").hide();#}
+                        {#$("#res").append(#}
+                            {#"<div class=\"col-md-5 ml-auto mr-auto\">\n" +#}
+                            {#"        <div class=\"card card-profile card-plain\">\n" +#}
+                            {#"            <div class=\"row\">\n" +#}
+                            {#"                <div class=\"col-md-5\">\n" +#}
+                            {#"                    <div class=\"card-header card-header-image\">\n" +#}
+                            {#"                        <a href=\"#\">" +#}
+                            {#"<img class=\"img\" src="+el.image+"/>" +#}
+                            {#"                       </a>\n" +#}
+                            {#"                    </div>\n" +#}
+                            {#"                </div>\n" +#}
+                            {#"                <div class=\"col-md-7\">\n" +#}
+                            {#"                    <div class=\"card-body\">"+#}
+                            {#"<h4 class=\"card-title\">"+el.libellePatisserie+"</h4>" +#}
+                            {#"<h6 class=\"card-category text-muted\">"+el.adressePatisserie+"</h6>" +#}
+                            {#"<p class=\"card-description\">"+el.description+"</p>\n" +#}
+                            {#"                    </div>\n" +#}
+                            {#"                </div>\n" +#}
+                            {#"            </div>\n" +#}
+                            {#"        </div>\n" +#}
+                            {#"    </div>"#}
+                        {#);#}
+                    {#});#}
+                {#}#}
+            {#});#}
+        {#});#}
+    {#</script>#}
     {% endblock %}
 {% endblock %}
 

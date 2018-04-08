@@ -1,0 +1,292 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}
+    Home Cup Cake
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css?v=2.0.2') }}">
+{% endblock %}
+
+{% block  body %}
+
+    {% block pageClass %}
+        <body class="index-page ">
+    {% endblock %}
+
+    {% block navbar %}
+        <!--         inverse navbar with notifications     -->
+        <nav class="navbar navbar-inverse navbar-expand-lg bg-primary navbar-color-on-scroll navbar-transparent fixed-top " color-on-scroll="100" id="sectionsNav" role="navigation-demo">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-translate">
+                    {#<a class="navbar-brand" href="#">Navbar with notification</a>#}
+                    <form class="form-inline ml-auto" method="post">
+                        <a href="{{ path('patisserie_recherche_avancee') }}">
+                            <button type="button" class="btn btn-white btn-raised btn-fab btn-round">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </a>
+                        <div class="form-group has-white">
+                            <input type="text" class="form-control" placeholder="Search" id="searchPatisserie">
+                        </div>
+                    </form>
+                    {#<div id="res">#}
+
+                    {#</div>#}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Discover
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Wishlist
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ path('user_homepage') }}" class="btn btn-rose btn-raised btn-fab btn-round">
+                                <i class="material-icons">home</i>
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+                                <i class="material-icons" style="opacity: 0.5">email</i>
+                                {#<span class="notification text-dark">1</span>#}
+                                {% block mailsnbr %}
+                                {% endblock %}
+                            </a>
+                            {% block mails %}
+                            {% endblock %}
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="modal" data-target="#signupModal">
+                                <i class="material-icons">shopping_cart</i>
+                            </button>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+                                <div class="profile-photo-small">
+                                    <img src="{{ app.user.image }}" alt="Circle Image" class="rounded-circle img-fluid">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <h6 class="dropdown-header">Cup Cake</h6>
+                                <a href="{{ path('fos_user_profile_show') }}" class="dropdown-item">Me</a>
+                                {% if is_granted('ROLE_PATISSIER') %}
+                                    <a href="{{ path('user_dashboard') }}" class="dropdown-item">My Dashboard</a>
+                                    <a href="{{ path('patisserie_space') }}" class="dropdown-item">My Space</a>
+                                {% endif %}
+                                <a href="#" class="dropdown-item">Settings and other stuff</a>
+
+                                {% if is_granted('ROLE_USER') %}
+                                    <a href="{{ path('fos_user_security_logout') }}" class="dropdown-item">Sign out</a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}" class="dropdown-item">Sign in</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li>
+                            <span>{{ app.user.prenom }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+        </nav>
+    {% endblock %}
+
+    {% block main %}
+        <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url({{ asset('assets/img/kit/pro/bg0.jpg') }});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="brand">
+                            <h1>Cup Cake
+                                <span class="pro-badge">
+                                Yum!
+                                </span>
+                            </h1>
+                            <h3 class="title">All your flavors !</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <div class="row">
+                        <h3>Les Résultats de votre recherche</h3>
+                    </div>
+                    <div class="container">
+                        <div class="row" id="res">
+                            {#<div id="res"></div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#-----------------------------------------------------------------------------------------------------------------------------------------#}
+        {#<div class="col-md-6 col-lg-4">#}
+            {#<div class="rotating-card-container">#}
+                {#<div class="card card-rotate card-background">#}
+                    {#<div class="front front-background" style="background-image: url({{ patisserie.image }});">#}
+                        {#<div class="card-body">#}
+                            {#<h6 class="card-category">{{ patisserie.specialite }}</h6>#}
+                            {#<a href="#">#}
+                                {#<h3 class="card-title">{{ patisserie.libellePatisserie }}</h3>#}
+                            {#</a>#}
+                            {#<p class="card-description">#}
+                                {#{{ patisserie.description }}#}
+                            {#</p>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="back back-background" style="background-image: url({{ patisserie.image }});">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title">#}
+                                {#Vous nous trouvez à : {{ patisserie.adressePatisserie }}#}
+                            {#</h5>#}
+                            {#<p class="card-description">Créer le : {{ patisserie.dateCreation|date }}</p>#}
+                            {#<div class="footer text-center">#}
+                                {#<a href="{{ path('patisserie_space_libelle',{'libelle_patisserie': patisserie.libellePatisserie }) }}" class="btn btn-info btn-just-icon btn-fill btn-round">#}
+                                    {#<i class="material-icons">store</i>#}
+                                {#</a>#}
+                                {#<a href="{{ patisserie.compteFacebook }}" class="btn btn-just-icon btn-round btn-facebook">#}
+                                    {#<i class="fa fa-facebook"></i>#}
+                                {#</a>#}
+                                {#<a href="{{ patisserie.compteInstagram }}" class="btn btn-just-icon btn-round btn-instagram">#}
+                                    {#<i class="fa fa-instagram"></i>#}
+                                {#</a>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block scripts %}
+        {{ parent() }}
+        <script>
+            {#$('#searchPatisserie').keyup(function () {#}
+                {#// alert("te5deeem");#}
+                {#var libelle=$('#searchPatisserie').val();#}
+                {#var DATA= 'libelle=' +libelle;#}
+                {#$.ajax({#}
+                    {#type:"POST",#}
+                    {#url: "{{ path('patisserie_recherche_avancee') }}",#}
+                    {#data:DATA,#}
+                    {#success:function (data) {#}
+                        {#console.log(data);#}
+                        {#// $("#div").html("<table id='res' border='1'>" +#}
+                        {#//     "<td>Série</td><td>Date Mise Circulation</td><td>Marque</td><td>Modele</td></table>");#}
+                        {#$.each(data,function (k,el) {#}
+                            {#// $("#affichage").hide();#}
+                            {#$('#res').append(#}
+                                {#"<div class=\"card\">"+#}
+                                {#"<div class=\"col-md-5 ml-auto mr-auto\">\n" +#}
+                                {#"        <div class=\"card card-profile card-plain\">\n" +#}
+                                {#"            <div class=\"row\">\n" +#}
+                                {#"                <div class=\"col-md-5\">\n" +#}
+                                {#"                    <div class=\"card-header card-header-image\">\n" +#}
+                                {#"                        <a href=\"#\">" +#}
+                                {#"<img class=\"img\" src="+el.image+"/>" +#}
+                                {#"                       </a>\n" +#}
+                                {#"                    </div>\n" +#}
+                                {#"                </div>\n" +#}
+                                {#"                <div class=\"col-md-7\">\n" +#}
+                                {#"                    <div class=\"card-body\">"+#}
+                                {#"<h4 class=\"card-title\">"+el.libellePatisserie+"</h4>" +#}
+                                {#"<h6 class=\"card-category text-muted\">"+el.adressePatisserie+"</h6>" +#}
+                                {#"<p class=\"card-description\">"+el.description+"</p>\n" +#}
+                                {#"                    </div>\n" +#}
+                                {#"                </div>\n" +#}
+                                {#"            </div>\n" +#}
+                                {#"        </div>\n" +#}
+                                {#"    </div></div>"#}
+                            {#);#}
+                        {#});#}
+                    {#}#}
+                {#});#}
+            {#});#}
+            // -------------------------------------------------------------------------------------------------------------------------
+                $('#searchPatisserie').keyup(function () {
+                    // alert("te5deeem");
+                    var libelle=$('#searchPatisserie').val();
+                    var DATA= 'libelle=' +libelle;
+                    $.ajax({
+                        type:"POST",
+                        url: "{{ path('patisserie_recherche_avancee') }}",
+                        data:DATA,
+                        success:function (data) {
+                            console.log(data);
+                            // $("#div").html("<table id='res' border='1'>" +
+                            //     "<td>Série</td><td>Date Mise Circulation</td><td>Marque</td><td>Modele</td></table>");
+                            $.each(data,function (k,el) {
+                                {#facebookUrl="{{ path('patisserie_space_libelle',{'libelle_patisserie': el.libellePatisserie }) }}";#}
+                                // $("#affichage").hide();
+                                $('#res').append(
+                                    "<div class=\"col-md-6 col-lg-4\">\n" +
+                                    "            <div class=\"rotating-card-container\">\n" +
+                                    "                <div class=\"card card-rotate card-background\">\n" +
+                                    "                    <div class=\"front front-background\" style=\"background-image: url("+el.image+");\">" +
+                                    "                        <div class=\"card-body\">\n" +
+                                    "                            <h6 class=\"card-category\">" +el.specialite+"</h6>\n" +
+                                    "                            <a href=\"#\">\n" +
+                                    "                                <h3 class=\"card-title\">"+el.libellePatisserie+"</h3>\n" +
+                                    "                            </a>\n" +
+                                    "                            <p class=\"card-description\">"+el.description+"</p>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div>\n" +
+                                    "                    <div class=\"back back-background\" style=\"background-image: url("+el.image+");\">\n" +
+                                    "                        <div class=\"card-body\">\n" +
+                                    "                            <h5 class=\"card-title\">\n" +
+                                    "                                Vous nous trouvez à : "+el.adressePatisserie+"</h5>\n" +
+                                    "                            <p class=\"card-description\">Créer le : "+new Date(el.datecreation).toString()+"</p>\n" +
+                                    "                            <div class=\"footer text-center\">"+
+                                    "                    <a href=\"#\" class=\"btn btn-info btn-just-icon btn-fill btn-round\">\n" +
+                                    "                                    <i class=\"material-icons\">store</i>\n" +
+                                    "                                </a>"+
+                                    "                <a class=\"btn btn-just-icon btn-round btn-facebook\" href=" +el.compteFacebook+">\n" +
+                                    "                                    <i class=\"fa fa-facebook\"></i>\n" +
+                                    "                                </a>"+
+                                    "                <a class=\"btn btn-just-icon btn-round btn-instagram\" href=" +el.compteInstagram+">\n" +
+                                    "                                    <i class=\"fa fa-instagram\"></i>\n" +
+                                    "                                </a>\n" +
+                                    "                            </div>\n" +
+                                    "                        </div>\n" +
+                                    "                    </div>\n" +
+                                    "                </div>\n" +
+                                    "            </div>\n" +
+                                    "        </div>"
+                                );
+                            });
+                        }
+                    });
+                });
+        </script>
+    {% endblock %}
+
+        </body>
+ {% endblock %}
+
+{#{% block searchResult %}#}
+
+{#{% endblock %}#}
