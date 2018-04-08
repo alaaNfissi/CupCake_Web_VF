@@ -10,6 +10,7 @@ namespace CupCake\UserBundle\Form;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -25,7 +26,12 @@ class RegistrationFormType extends AbstractType
             ->add('num_tel')
             ->add('nom')
             ->add('prenom')
-            ->add('date_naissance')
+            ->add('date_naissance',BirthdayType::class,array(
+                'widget'=>'single_text',
+                'format' => 'yyyy-MM-dd',
+//                'input'=>'string',
+//                'attr'=>array('class'=>'datepicker'),
+            ))
             ->add('adresse')
             ->add('sexe',ChoiceType::class,array(
                 'choices'=> array('Homme'=>'homme','Femme'=>'femme'),

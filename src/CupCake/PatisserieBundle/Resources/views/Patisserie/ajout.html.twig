@@ -48,7 +48,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Adresse</label>
-                                            {{ form_widget(form.adresse_patisserie,{'attr': {'class': 'form-control'}}) }}
+                                            {{ form_widget(form.adresse_patisserie,{'attr': {'class': 'form-control','id':'adresse'}}) }}
                                             {#<input type="text" class="form-control">#}
                                         </div>
                                     </div>
@@ -56,7 +56,11 @@
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Date de création</label>
                                             {#<input type="text" class="form-control datepicker" value="{{ "now"|date("Y-m-d") }}">#}
-                                            {{ form_widget(form.date_creation,{'attr': {'class': 'form-control'}}) }}
+                                            {% if patisserie != null %}
+                                                {{ form_widget(form.date_creation,{'attr': {'class': 'form-control datepicker','value': patisserie.datecreation|date('Y-m-d') }}) }}
+                                            {% else %}
+                                                {{ form_widget(form.date_creation,{'attr': {'class': 'form-control datepicker','value': "now"|date('Y-m-d') }}) }}
+                                            {% endif %}
                                             {#<input type="email" class="form-control">#}
                                         </div>
                                     </div>
@@ -153,4 +157,108 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    {#<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>#}
+    {#<script type="text/javascript">#}
+        {#$(function () {#}
+            {#var latlng = new google.maps.LatLng(36.8064948, 10.181531599999971);#}
+            {#var map = new google.maps.Map(document.getElementById('gmap'), {#}
+                {#//les element required pour map#}
+                {#zoom: 10,#}
+                {#center: latlng,#}
+                {#mapTypeId: google.maps.MapTypeId.ROADMAP#}
+            {#});#}
+            {#//ajout d'un marqueur dans la map#}
+            {#var marker = new google.maps.Marker({#}
+                {#position: latlng,#}
+                {#map: map,#}
+                {#title: 'Bougez ce curseur',#}
+                {#draggable: true,#}
+                {#animation: google.maps.Animation.BOUNCE#}
+            {#});#}
+            {#//obtenir latlong quand marker change de position#}
+            {#var geocoder = new google.maps.Geocoder();#}
+            {#google.maps.event.addListener(marker, 'drag', function () {#}
+                {#setPosition(marker);#}
+            {#});#}
+            {#google.maps.event.addListener(marker, 'dragend', function () {#}
+                {#var pos = marker.getPosition();#}
+                {#var latitude = pos.lat();#}
+                {#var longitude = pos.lng();#}
+                {#getAddress(latitude, longitude);#}
+                {#marker.setPosition(latLng);#}
+            {#});#}
+
+            {#//Event sur le champ address#}
+            {#$('#adresse').keypress(function (e) {#}
+                {#if (e.keyCode == 13) {#}
+                    {#$(this).val();#}
+                    {#var request = {#}
+                        {#address: $(this).val()#}
+                    {#}#}
+                    {#geocoder.geocode(request, function (results, status) {#}
+                        {#if (status == google.maps.GeocoderStatus.OK) {#}
+                            {#var pos = results[0].geometry.location;#}
+                            {#map.setCenter(pos);#}
+                            {#marker.setPosition(pos);#}
+                            {#setPosition(marker);#}
+                        {#}#}
+                        {#else {#}
+                            {#alert('false');#}
+                        {#}#}
+                    {#});#}
+                    {#return false;#}
+                {#}#}
+
+            {#});#}
+
+            {#//les champ lat et long prend les valeurs de latlong quand le marker se deplace#}
+            {#function setPosition(marker) {#}
+                {#var pos = marker.getPosition();#}
+                {#$('#latitude').val(pos.lat());#}
+                {#$('#longitude').val(pos.lng());#}
+            {#}#}
+
+            {#//evenement onclick sur la map#}
+            {#map.addListener('click', function (e) {#}
+                {#placeMarkerAndPanTo(e.latLng, map);#}
+            {#});#}
+
+            {#function placeMarkerAndPanTo(latLng, map) {#}
+                {#var pos = marker.getPosition();#}
+                {#var latitude = pos.lat();#}
+                {#var longitude = pos.lng();#}
+                {#getAddress(latitude, longitude);#}
+                {#marker.setPosition(latLng);#}
+                {#setPosition(marker);#}
+                {#map.panTo(latLng);#}
+            {#}#}
+
+
+
+            {#// function to process address data#}
+            {#function processAddress(address) {#}
+                {#$("#adresse").val(address);#}
+                {#// write address to field#}
+            {#}#}
+
+            {#// function to geocode a lat/long#}
+            {#function getAddress(myLatitude, myLongitude) {#}
+                {#var geocoder = new google.maps.Geocoder();							// create a geocoder object#}
+                {#var location = new google.maps.LatLng(myLatitude, myLongitude);		// turn coordinates into an object#}
+                {#geocoder.geocode({'latLng': location}, function (results, status) {#}
+                    {#if (status == google.maps.GeocoderStatus.OK) {						// if geocode success#}
+                        {#processAddress(results[0].formatted_address);					// if address found, pass to processing function#}
+                    {#} else {#}
+                        {#alert("Geocode failure: " + status);								// alert any other error(s)#}
+                        {#return false;#}
+                    {#}#}
+                {#});#}
+            {#}#}
+
+            {#//////////////////////////////////////////////////////////////////////////#}
+        {#});#}
+    {#</script>#}
 {% endblock %}

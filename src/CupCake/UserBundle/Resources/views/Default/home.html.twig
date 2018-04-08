@@ -15,23 +15,22 @@
         {{ parent() }}
     {% endblock %}
     {% block main %}
-
-            {% block mailsnbr %}
-                {% if panier.idPanier != null %}
-                    <span class="notification">P</span>
-                {% endif %}
-            {% endblock %}
-            {% block mails %}
-             {% if panier.idPanier != null %}
-                <div class="dropdown-menu dropdown-menu-right">
-                    <h6 class="dropdown-header">Vos notifications</h6>
-                    <a class="dropdown-item">vous avez un panier n'est pas encore valider !</a>
-                </div>
-             {% endif %}
-            {% endblock %}
-            {#{% else %}#}
+         {#{% else %}#}
         <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url({{ asset('assets/img/kit/pro/bg0.jpg') }});">
             <div class="container">
+                {% block mailsnbr %}
+                    {% if panier.idPanier != null %}
+                        <span class="notification">p</span>
+                    {% endif %}
+                {% endblock %}
+                {% block mails %}
+                    {% if panier.idPanier != null %}
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <h6 class="dropdown-header">Vos notifications</h6>
+                            <a class="dropdown-item">vous avez un panier n'est pas encore valider !</a>
+                        </div>
+                    {% endif %}
+                {% endblock %}
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
                         <div class="brand">
@@ -466,6 +465,7 @@
                 // $('#completeLivraiosn').onclick(function () {
                 //     $('#closeModal').click();
                 // });
+                // var date=new Date();
                 $('.datepicker').datetimepicker({
                     icons: {
                         time: "fa fa-clock-o",
@@ -477,7 +477,9 @@
                         today: 'fa fa-screenshot',
                         clear: 'fa fa-trash',
                         close: 'fa fa-remove'
-                    }
+                    },
+                    // minDate:moment().add(2,'d'),
+                    // minDate: date.add
                 });
 
             });

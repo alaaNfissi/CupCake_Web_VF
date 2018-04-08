@@ -5,6 +5,7 @@ namespace CupCake\PatisserieBundle\Form;
 use CupCake\UserBundle\Entity\Utilisateur;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,7 +24,12 @@ class AjoutPatisserieFormType extends AbstractType
         $builder
             ->add('libelle_patisserie')
             ->add('adresse_patisserie')
-            ->add('date_creation')
+            ->add('date_creation',BirthdayType::class,array(
+                'widget'=>'single_text',
+                'format' => 'yyyy-MM-dd',
+//                'input'=>'string',
+//                'attr'=>array('class'=>'datepicker'),
+            ))
             ->add('specialite')
             ->add('compte_facebook',UrlType::class)
             ->add('compte_instagram',UrlType::class)
