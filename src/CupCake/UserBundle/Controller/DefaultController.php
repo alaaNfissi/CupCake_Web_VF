@@ -58,11 +58,13 @@ class DefaultController extends Controller
         if($patisserie == null)
         {
             $nbreCommandes=null;
+            $revenueTotale=null;
         }
         else
         {
             $nbreCommandes=$em->getRepository('CommandeBundle:Commande')->numCommande($patisserie);
+            $revenueTotale=$em->getRepository('CommandeBundle:Commande')->revenueTotale($patisserie);
         }
-        return $this->render('UserBundle:Default:dashboard.html.twig',array('patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes));
+        return $this->render('UserBundle:Default:dashboard.html.twig',array('patisserie'=>$patisserie,'nbreCommandes'=>$nbreCommandes,$revenueTotale,'revenueTotale'=>$revenueTotale));
     }
 }

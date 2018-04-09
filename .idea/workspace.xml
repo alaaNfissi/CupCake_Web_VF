@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58572cc-ecb5-49c5-904c-30f995c88f42" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php" afterPath="$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php" />
-      <change beforePath="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileDetailsController.php" afterPath="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileDetailsController.php" />
-      <change beforePath="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Profile/ProfileDetails.html.twig" afterPath="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Profile/ProfileDetails.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php" afterPath="$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php" />
+      <change beforePath="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig" afterPath="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,26 +35,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="edit_content.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3354">
-              <caret line="129" column="144" lean-forward="false" selection-start-line="129" selection-start-column="144" selection-end-line="129" selection-end-column="144" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="54" column="53" lean-forward="false" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,9 +58,27 @@
       <file leaf-file-name="CommandeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
+            <state relative-caret-position="1248">
               <caret line="85" column="49" lean-forward="false" selection-start-line="85" selection-start-column="49" selection-end-line="85" selection-end-column="49" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandeRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="100" column="52" lean-forward="false" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
+              <folding>
+                <marker date="1523278028182" expanded="true" signature="442:553" ph="SELECT panie... CommandeBundle" />
+                <marker date="1523278028182" expanded="true" signature="740:901" ph="SELECT count... CommandeBundle" />
+                <marker date="1523278028182" expanded="true" signature="1191:1325" ph="SELECT DISTI... commande" />
+                <marker date="1523278028182" expanded="true" signature="1191:1326" ph="SELECT DISTI... commande" />
+                <marker date="1523278028182" expanded="true" signature="3387:3432" ph="SELECT * FRO... commande" />
+                <marker date="1523278028182" expanded="true" signature="3703:3839" ph="SELECT DISTI... commande" />
+                <marker date="1523278028182" expanded="true" signature="4725:4884" ph="SELECT SUM(c... CommandeBundle" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +105,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileDetailsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileDetailsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileDetailsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
@@ -119,21 +117,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegistrationFormType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Form/RegistrationFormType.php">
+      <file leaf-file-name="dashboard.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="33" selection-end-column="14" />
+            <state relative-caret-position="252">
+              <caret line="628" column="81" lean-forward="false" selection-start-line="628" selection-start-column="81" selection-end-line="628" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_content.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="151" column="29" lean-forward="false" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
+            <state relative-caret-position="536">
+              <caret line="67" column="180" lean-forward="false" selection-start-line="67" selection-start-column="180" selection-end-line="67" selection-end-column="180" />
+              <folding>
+                <element signature="e#2278#2303#1#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationFormType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Form/RegistrationFormType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="33" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -215,11 +225,9 @@
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" />
-        <option value="$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php" />
         <option value="$PROJECT_DIR$/src/CupCake/CommandeBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/CupCake/LivraisonBundle/Entity/Livraison.php" />
         <option value="$PROJECT_DIR$/src/CupCake/CommandeBundle/Resources/views/Commande/commandeDashboardTable.html.twig" />
-        <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/CupCake/StatistiqueBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/CupCake/StatistiqueBundle/Resources/views/Default/index.html.twig" />
@@ -228,7 +236,6 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" />
         <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Form/RegistrationFormType.php" />
         <option value="$PROJECT_DIR$/src/CupCake/PatisserieBundle/Form/AjoutPatisserieFormType.php" />
-        <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig" />
         <option value="$PROJECT_DIR$/src/CupCake/PatisserieBundle/Resources/views/Patisserie/ajout.html.twig" />
         <option value="$PROJECT_DIR$/src/CupCake/PatisserieBundle/Entity/Patisserie.php" />
         <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/home.html.twig" />
@@ -245,6 +252,9 @@
         <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Profile/ProfileDetails.html.twig" />
         <option value="$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php" />
         <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileDetailsController.php" />
+        <option value="$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php" />
+        <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig" />
       </list>
     </option>
   </component>
@@ -918,12 +928,12 @@
       <workItem from="1523124415810" duration="7674000" />
       <workItem from="1523182905764" duration="23377000" />
       <workItem from="1523220496147" duration="4621000" />
-      <workItem from="1523271203497" duration="4622000" />
+      <workItem from="1523271203497" duration="5758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348574000" />
+    <option name="totallyTimeSpent" value="349710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1104,28 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="35" column="139" lean-forward="false" selection-start-line="35" selection-start-column="139" selection-end-line="35" selection-end-column="139" />
-          <folding>
-            <marker date="1523045652784" expanded="true" signature="442:553" ph="SELECT panie... CommandeBundle" />
-            <marker date="1523045652784" expanded="true" signature="740:901" ph="SELECT count... CommandeBundle" />
-            <marker date="1523045652784" expanded="true" signature="1191:1325" ph="SELECT DISTI... commande" />
-            <marker date="1523045652784" expanded="true" signature="1191:1326" ph="SELECT DISTI... commande" />
-            <marker date="1523045652784" expanded="true" signature="3387:3432" ph="SELECT * FRO... commande" />
-            <marker date="1523045652784" expanded="true" signature="3703:3839" ph="SELECT DISTI... commande" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CupCake/StatistiqueBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1173,13 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4520">
-          <caret line="838" column="48" lean-forward="false" selection-start-line="838" selection-start-column="48" selection-end-line="838" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1353,14 +1334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="85" column="49" lean-forward="false" selection-start-line="85" selection-start-column="49" selection-end-line="85" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/ProfileDetailsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1368,6 +1341,48 @@
           <folding>
             <element signature="e#131#174#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Controller/CommandeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="85" column="49" lean-forward="false" selection-start-line="85" selection-start-column="49" selection-end-line="85" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/CommandeBundle/Entity/CommandeRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="100" column="52" lean-forward="false" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
+          <folding>
+            <marker date="1523278028182" expanded="true" signature="442:553" ph="SELECT panie... CommandeBundle" />
+            <marker date="1523278028182" expanded="true" signature="740:901" ph="SELECT count... CommandeBundle" />
+            <marker date="1523278028182" expanded="true" signature="1191:1325" ph="SELECT DISTI... commande" />
+            <marker date="1523278028182" expanded="true" signature="1191:1326" ph="SELECT DISTI... commande" />
+            <marker date="1523278028182" expanded="true" signature="3387:3432" ph="SELECT * FRO... commande" />
+            <marker date="1523278028182" expanded="true" signature="3703:3839" ph="SELECT DISTI... commande" />
+            <marker date="1523278028182" expanded="true" signature="4725:4884" ph="SELECT SUM(c... CommandeBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="67" column="180" lean-forward="false" selection-start-line="67" selection-start-column="180" selection-end-line="67" selection-end-column="180" />
+          <folding>
+            <element signature="e#2278#2303#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CupCake/UserBundle/Resources/views/Default/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="628" column="81" lean-forward="false" selection-start-line="628" selection-start-column="81" selection-end-line="628" selection-end-column="81" />
+          <folding />
         </state>
       </provider>
     </entry>

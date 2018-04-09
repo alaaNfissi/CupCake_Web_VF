@@ -94,4 +94,12 @@ class CommandeRepository extends EntityRepository
         }
         return $commandes;
     }
+
+    public function revenueTotale($patisserie)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT SUM(cd.prix_totale) FROM CommandeBundle:Commande cd WHERE cd.panier IN (SELECT pa.id_panier FROM PanierBundle:Panier pa WHERE pa.patisserie=:patisserie)")
+            ->setParameter('patisserie',$patisserie);
+        return $query->getSingleScalarResult();
+    }
 }
