@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c58572cc-ecb5-49c5-904c-30f995c88f42" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CupCake/PatisserieBundle/Resources/views/Patisserie/patisserieSpace.html.twig" afterPath="$PROJECT_DIR$/src/CupCake/PatisserieBundle/Resources/views/Patisserie/patisserieSpace.html.twig" />
-    </list>
+    <list default="true" id="c58572cc-ecb5-49c5-904c-30f995c88f42" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -316,7 +314,7 @@
       <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1376" />
@@ -926,15 +924,15 @@
       <workItem from="1523124415810" duration="7674000" />
       <workItem from="1523182905764" duration="23377000" />
       <workItem from="1523220496147" duration="4621000" />
-      <workItem from="1523271203497" duration="8192000" />
+      <workItem from="1523271203497" duration="8215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352144000" />
+    <option name="totallyTimeSpent" value="352167000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23039742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
