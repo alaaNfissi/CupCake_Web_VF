@@ -82,11 +82,21 @@ class CommandeController extends Controller
         {
             $em=$this->getDoctrine()->getManager();
             $livraison=$em->getRepository('LivraisonBundle:Livraison')->find($request->get('id'));
-            $livraison->setEtatLivraison($request->get('etat'));
-            $em->persist($livraison);
-            $em->flush();
+            $date=new \DateTime();
+            $date=$livraison->getDateLivraison();
+            if((time()+(60*60*24)) < strtotime($date->format('Y-m-d')))
+            {
+                $livraison->setEtatLivraison($request->get('etat'));
+                $em->persist($livraison);
+                $em->flush();
+                $test=0;
+            }
+            else
+            {
+                $test=-1;
+            }
 //            $dateDiff=date_diff(new \DateTime(),$commande->getDateCommande());
-            $test=-1;
+
 //            if($dateDiff->format("%R%a")<2)
 //            {
 //                $em->remove($commande);

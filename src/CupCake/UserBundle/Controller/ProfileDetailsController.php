@@ -11,10 +11,11 @@ namespace CupCake\UserBundle\Controller;
 
 use CupCake\CommandeBundle\Entity\Commande;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProfileDetailsController extends Controller
 {
-    public function profiledetailsAction()
+    public function profiledetailsAction(Request $request)
     {
         $ttProduits=array();
         $livraisons=array();
@@ -28,7 +29,8 @@ class ProfileDetailsController extends Controller
                 $ttProduits[$i] = $produits;
             }
         }
+        $test=$request->get('testDelete');
         dump($commandes);
-        return $this->render('UserBundle:Profile:ProfileDetails.html.twig',array('commandes'=>$commandes,'ttProduits'=>$ttProduits,'livraisons'=>$livraisons));
+        return $this->render('UserBundle:Profile:ProfileDetails.html.twig',array('commandes'=>$commandes,'ttProduits'=>$ttProduits,'livraisons'=>$livraisons,'testDelete'=>$test));
     }
 }
