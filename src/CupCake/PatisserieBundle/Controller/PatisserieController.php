@@ -11,6 +11,7 @@ namespace CupCake\PatisserieBundle\Controller;
 
 use CupCake\PatisserieBundle\Entity\Patisserie;
 use CupCake\PatisserieBundle\Form\AjoutPatisserieFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +20,9 @@ use Symfony\Component\Serializer\Serializer;
 
 class PatisserieController extends Controller
 {
+    /**
+     * @Security("has_role('ROLE_PATISSIER')")
+     */
     public function ajoutPatisserieAction(Request $request)
     {
         $patisserie=new Patisserie();
@@ -35,6 +39,9 @@ class PatisserieController extends Controller
         return $this->render('PatisserieBundle:Patisserie:ajout.html.twig',array('form' => $form->createView(),'patisserie'=>null));
     }
 
+    /**
+     * @Security("has_role('ROLE_PATISSIER')")
+     */
     public function modifierPatisserieAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();

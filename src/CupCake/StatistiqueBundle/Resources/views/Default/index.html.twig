@@ -12,6 +12,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div id="calendar_chart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -22,5 +31,8 @@
     {{ gc_language('fr') }}
 
     {{ gc_draw(barChart, 'bar_chart') }}
+    {{ gc_language('fr') }}
+
+    {{ gc_draw(calendar_chart, 'calendar_chart') }}
 </script>
 {% endblock %}

@@ -12,6 +12,7 @@ namespace CupCake\CommandeBundle\Controller;
 use CupCake\CommandeBundle\Entity\Commande;
 use CupCake\PatisserieBundle\Entity\Patisserie;
 use CupCake\ProduitBundle\Entity\Produit;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -37,6 +38,9 @@ class CommandeController extends Controller
             return $this->redirectToRoute('user_homepage',array('param' => $Bcommande,'idC'=>$commande->getIdCommande()));
         }
 
+    /**
+     * @Security("has_role('ROLE_PATISSIER')")
+     */
         public function commandedashboardAction()
         {
             $livraisons=array();

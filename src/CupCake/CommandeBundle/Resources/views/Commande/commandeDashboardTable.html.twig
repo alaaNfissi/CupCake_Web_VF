@@ -63,7 +63,7 @@
                                         {#<button class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="modal" data-target="#signupModal">#}
                                             {#<i class="material-icons">shopping_cart</i>#}
                                         {#</button>#}
-                                        {% if livraisons[i].idLivraison == 3 %}
+                                        {% if livraisons[i].etatLivraison == 3 %}
                                             <a class="btn btn-link btn-danger btn-just-icon"><i class="material-icons" data-toggle="tooltip" data-placement="top" title="La Commande est Annulée" data-container="body">remove_shopping_cart</i></a>
                                         {% endif %}
                                         <a href="#" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#signupModal_{{ i }}"><i class="material-icons" data-placement="top" title="Détails Panier et Livraison" data-container="body" data-toggle="tooltip">remove_red_eye</i></a>

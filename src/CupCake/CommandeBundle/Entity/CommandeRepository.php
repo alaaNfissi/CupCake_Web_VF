@@ -102,4 +102,13 @@ class CommandeRepository extends EntityRepository
             ->setParameter('patisserie',$patisserie);
         return $query->getSingleScalarResult();
     }
+
+    public function revenueDesCommandeDate ($patisserie,$dateC)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT SUM(cd.prix_totale) FROM CommandeBundle:Commande cd WHERE cd.panier IN (SELECT pa.id_panier FROM PanierBundle:Panier pa WHERE pa.patisserie=:patisserie AND cd.date_commande =:dateC)")
+            ->setParameter('patisserie',$patisserie)
+            ->setParameter('dateC',$dateC);
+        return $query->getSingleScalarResult();
+    }
 }
